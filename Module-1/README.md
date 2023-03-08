@@ -1,4 +1,4 @@
-#### Module-1: Beginning JavaScript-1
+## Module-1: Beginning JavaScript-1
 
 1. **JS Introduction:**
 
@@ -31,5 +31,28 @@
    - **Assignment:** =, +=, -=, \*=, /=, %=
 
 1. **Conditions:**
+
    - The JS if-else statement is used to execute the code whether condition is true or false
    - if(only one condition), if-else(two condition), if-else if (more than two condition)
+
+1. **Loop:**
+
+   - The JS loops are used to iterate the piece of code using for, while, do-while, for-in and for-of loops.
+   - for, for-in, for-of, while, do-while
+
+1. **Functions:** JS functions are used to perform operations. We can call JS function many time to reuse the code.
+
+   - Code Reusability
+   - Less Code
+   - Easy to Understand
+
+1. **Objects:**
+
+   - A JS object is an entity having state & behavior (properties & method)
+   - for-in loop
+   - key value pairs
+
+1. **Array:**
+
+   - JS array is an object that represents a collection of similar type of elements
+   - for-of loop

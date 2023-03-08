@@ -1,6 +1,6 @@
-## Full Stack Web Development with MERN
+# Full Stack Web Development with MERN
 
-#### Module-1: Beginning JavaScript-1
+## Module-1: Beginning JavaScript-1
 
 1. Introduction
 1. Comments
