@@ -56,3 +56,18 @@
 
    - JS array is an object that represents a collection of similar type of elements
    - for-of loop
+   - concat() -> method combines two or more arrays & returns a new string
+   - from() -> method creates a new array that holds the shallow copy from an array or iterable object
+   - filter() -> method filter & extract the element of an array that satisfying the provided condition
+   - find() -> method returns the first element of the given array that satisfies the provided function condition
+
+   -findIndex() -> method returns the index of first element of the given array that satisfies the provided function condition. It return -1 if no element satisfies the condition
+
+   - forEach() -> method is used to invoke the specified function once for each array element
+   - includes() -> method checks whether the given array contains the specified element. It returns true if an array contains the element, otherwise false
+   - indexOf() -> method is used to search the position of a particular element in a given array (case-sensitive)
+   - push() -> method add one or more elements to the end of the given array
+   - pop() -> method removes the last element from the given array and return that element
+   - reverse() -> method changes the sequence of elements of the given array and returns the reverse sequence
+   - slice( start, end ) -> method extracts the part of the given array & returns it. doesn't change the original array.
+   - splice( index, deleteCount , add) -> method is used to add/remove the elements from the existing array. It also modifies the original array.
