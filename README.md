@@ -8,3 +8,8 @@
 1. Data Types
 1. Operators
 1. Conditions
+1. Loops
+1. Functions
+1. Objects
+1. Array
+1. Array Methods
