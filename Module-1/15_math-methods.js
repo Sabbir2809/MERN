@@ -14,7 +14,7 @@ console.log(Math.ceil(cgpa));
 // 5. Math.round()
 console.log(Math.round(cgpa));
 
-// 6. Math.random(), Math.toFixed()
+// 6. Math.random()
 let randomNumber = Math.random() * 10;
 console.log(randomNumber.toFixed(0));
 

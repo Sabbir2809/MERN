@@ -95,6 +95,7 @@
    - getTime()
 
 1. **Math Methods:**
+
    - Math.abs()
    - Math.max()
    - Math.min()
@@ -103,5 +104,11 @@
    - Math.round()
    - Math.random()
    - Math.PI
-   - Math.toFixed()
    - Math.sqrt()
+
+1. **Number Methods:**
+   - toFixed()
+   - toString()
+   - parseInt()
+   - parseFloat()
+   - isInteger()

@@ -15,3 +15,5 @@
 1. Array Methods
 1. String
 1. Date Object
+1. Math Methods
+1. Number Methods
