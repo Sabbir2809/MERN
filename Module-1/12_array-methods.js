@@ -19,49 +19,49 @@ let result = numArray.filter((num) => num > 50);
 let ans = numArray.find((num) => num > 50);
 // console.log(ans);
 
-// 5. findIndex(): index
+// 5. findIndex()
 let ansIndex = numArray.findIndex((num) => num > 50);
 // console.log(ansIndex);
 
-// 6. forEach() : not return, only each element visit
+// 6. forEach()
 numArray.forEach((item) => {
   console.log(item);
 });
 
-// 7. includes() : true, false
+// 7. includes()
 let existNum = numArray.includes(70);
 // console.log(existNum);
 
-// 8. indexOf() : index, -1
+// 8. indexOf()
 let existNumIndex = numArray.indexOf(70);
 // console.log(existNumIndex);
 
-// 10. push()
+// 9. push()
 numArray.push(80);
 numArray.push(90);
 // console.log(numArray);
 
-// 11. pop()
+// 10. pop()
 numArray.pop();
 numArray.pop();
 // console.log(numArray);
 
-// 12. reverse()
+// 11. reverse()
 numArray.reverse();
 // console.log(numArray);
 
-// 13. sort()
+// 12. sort()
 let unSortArray = [1, 9, 2, 5, 8, 0];
 let sortArray = unSortArray.sort();
 // console.log(sortArray);
 // console.log(unSortArray);
 
-// 14. slice()
+// 13. slice()
 let word = ['s', 'a', 'b', 'i', 'r'];
 let newWord = word.slice(2, 4);
 console.log(newWord);
 
-// 15. splice()
+// 14. splice()
 let letter = ['A', 'B', 'C', 'D'];
 letter.splice(0, 1, 'a');
 console.log(letter);
