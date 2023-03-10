@@ -52,9 +52,8 @@
    - for-in loop
    - key value pairs
 
-1. **Array:**
+1. **Array:** JS array is an object that represents a collection of similar type of elements
 
-   - JS array is an object that represents a collection of similar type of elements
    - for-of loop
    - concat() -> method combines two or more arrays & returns a new string
    - from() -> method creates a new array that holds the shallow copy from an array or iterable object
@@ -71,3 +70,38 @@
    - reverse() -> method changes the sequence of elements of the given array and returns the reverse sequence
    - slice( start, end ) -> method extracts the part of the given array & returns it. doesn't change the original array.
    - splice( index, deleteCount , add) -> method is used to add/remove the elements from the existing array. It also modifies the original array.
+   - length ->
+
+1. **String:** The JS string is an object that represents a sequence of characters.
+
+   - charAt() -> It provides the character value present at the specified index
+   - concat() -> It provides a combination of two or more string
+   - indexOf() -> It provides the position of a character value present in the given string
+   - lastIndexOf() -> It provides the position of a character value present in the given string by searching a character from the last position
+   - replace() ->
+   - subString() ->
+   - slice() ->
+   - toUpperCase() ->
+   - toLowerCase() ->
+   - trim() ->
+   - length ->
+
+1. **Date Object:**
+
+   - Date()
+   - getFullYear()
+   - getHours()
+   - getMonth()
+   - getTime()
+
+1. **Math Methods:**
+   - Math.abs()
+   - Math.max()
+   - Math.min()
+   - Math.floor()
+   - Math.ceil()
+   - Math.round()
+   - Math.random()
+   - Math.PI
+   - Math.toFixed()
+   - Math.sqrt()

@@ -13,3 +13,5 @@
 1. Objects
 1. Array
 1. Array Methods
+1. String
+1. Date Object
