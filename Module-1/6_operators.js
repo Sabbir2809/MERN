@@ -1,15 +1,19 @@
 let num1 = 20;
 let num2 = 5;
 
-// Arithmetic
+// Arithmetic Operator
 console.log(num1 + num2);
 console.log(num1 - num2);
 console.log(num1 * num2);
 console.log(num1 / num2);
 console.log(num1 % num2);
 
-// Comparison
+// Comparison Operator
 console.log(num1 === num2);
 console.log(num1 !== num2);
 console.log(num1 > num2);
 console.log(num1 < num2);
+
+// Logical Operator
+
+// Bitwise Operator

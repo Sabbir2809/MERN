@@ -1,4 +1,4 @@
-// if-else if
+// if else-if
 let mark = 80;
 if (mark >= 80 && mark <= 100) {
   console.log('Outstanding...');

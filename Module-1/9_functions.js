@@ -1,4 +1,6 @@
 // Function: code reusability, less code, easy to understand
+
+// void function
 function msg() {
   console.log('Allah...');
 }
@@ -8,6 +10,7 @@ function add(num1, num2) {
   return num1 + num2;
 }
 
+// return function
 function sub(num1, num2) {
   let a = num1;
   let b = num2;
@@ -15,6 +18,7 @@ function sub(num1, num2) {
   return sub;
 }
 
+// msg() function call
 msg();
 
 const result = add(20, 5);

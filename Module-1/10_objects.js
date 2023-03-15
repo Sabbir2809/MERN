@@ -12,6 +12,7 @@ let Person = {
   },
 };
 
+// object access
 console.log(Person['name']);
 console.log(Person.departmentInfo.id);
 

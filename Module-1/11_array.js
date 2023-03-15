@@ -1,6 +1,5 @@
 // array
 let tags = ['CSE', 'SWE', 'CIS', 'EEE', 'Civil', 'Architecture'];
-
 console.log(tags[0]);
 
 // array (for-of) loop
