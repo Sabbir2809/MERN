@@ -1,24 +1,24 @@
-// string
+// 1. string
 let str = 'Sabbir Hossain';
 console.log(str);
 
-// number
+// 2. number
 let num = 100;
 let PI = 3.1416;
 console.log(num, PI);
 
-// boolean
+// 3. boolean
 let right = true;
 let wrong = false;
 console.log(right, wrong);
 
-// null
+// 4. null
 let n = null;
 console.log(n);
 
-// undefined
-let budget = undefined;
+// 5. undefined
+let budget;
 console.log(budget);
 
-// Data Type Check
+// *** Data Type Check
 console.log(typeof str, typeof num, typeof right, typeof n, typeof budget);

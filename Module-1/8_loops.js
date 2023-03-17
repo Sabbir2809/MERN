@@ -1,4 +1,4 @@
-// for loop
+// 1. for loop
 let num = 10;
 for (let i = 1; i <= num; i++) {
   if (i % 2 === 0) {
@@ -10,7 +10,7 @@ for (let i = 1; i <= num; i++) {
   console.log(i);
 }
 
-// while loop
+// 2. while loop
 let i = 0;
 while (num > i) {
   if (i % 2 === 0) {
@@ -19,7 +19,7 @@ while (num > i) {
   i++;
 }
 
-// do-while
+// 3. do-while
 let x = 1;
 do {
   console.log('Allah');

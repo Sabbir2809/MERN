@@ -1,4 +1,4 @@
-// Object
+// 1. Object
 let obj = {
   name: 'Sabbir Hossain',
   age: 24,
@@ -6,6 +6,6 @@ let obj = {
 };
 console.log(obj.designation);
 
-// Array
+// 2. Array
 let arr = ['JS', 'React', 'Node', 'MongoDB'];
 console.log(arr);
