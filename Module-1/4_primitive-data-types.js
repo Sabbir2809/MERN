@@ -20,5 +20,5 @@ console.log(n);
 let budget;
 console.log(budget);
 
-// *** Data Type Check
+// *** How to Data Type Check
 console.log(typeof str, typeof num, typeof right, typeof n, typeof budget);

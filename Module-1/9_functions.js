@@ -1,16 +1,16 @@
 // Function: code reusability, less code, easy to understand
 
-// void function
+// 1. void function
 function msg() {
   console.log('Allah...');
 }
 
-// parameterized function
+// 2. parameterized function
 function add(num1, num2) {
   return num1 + num2;
 }
 
-// return function
+// 3. return function
 function sub(num1, num2) {
   let a = num1;
   let b = num2;
@@ -18,8 +18,7 @@ function sub(num1, num2) {
   return sub;
 }
 
-// msg() function call
-msg();
+msg(); // how to function call
 
 const result = add(20, 5);
 console.log(result);

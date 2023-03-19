@@ -11,9 +11,8 @@
 1. Loops
 1. Functions
 1. Objects
-1. Array
 1. Array Methods
-1. String
+1. String Methods
 1. Date Object
-1. Math Methods
+1. Math Object
 1. Number Methods

@@ -92,7 +92,7 @@
    - getMonth()
    - getTime()
 
-1. **Math Methods:**
+1. **Math Object:**
 
    - Math.abs()
    - Math.max()
