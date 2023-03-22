@@ -1,4 +1,4 @@
-// 1. Object
+// 1. Object: Objects are used to represent complex data structures, and can contain properties and methods
 let obj = {
   name: 'Sabbir Hossain',
   age: 24,
@@ -6,6 +6,6 @@ let obj = {
 };
 console.log(obj.designation);
 
-// 2. Array
+// 2. Array: Arrays are used to store collections of data, and can contain any combination of data types.
 let arr = ['JS', 'React', 'Node', 'MongoDB'];
 console.log(arr);

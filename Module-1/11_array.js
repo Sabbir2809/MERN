@@ -1,4 +1,4 @@
-// array
+// array: Arrays are used to store collections of data, and can contain any combination of data types.
 let tags = ['CSE', 'SWE', 'CIS', 'EEE', 'Civil', 'Architecture'];
 console.log(tags[0]);
 
