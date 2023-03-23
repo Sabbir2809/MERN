@@ -1,4 +1,4 @@
-// 1. toFixed()
+// 1. toFixed(): this method rounds a number to a specified number of decimal places & return a string. It's important to note that toFixed returns a string, not a number, so you may need to convert it back to a number using parseFloat or Number if you want to perform mathematical operations with it.
 let PI = 3.1416;
 console.log(PI.toFixed(2));
 
