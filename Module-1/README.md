@@ -6,24 +6,23 @@
 
 1. **JS Comments:**
 
-   - The JS comments are meaningful way to deliver message. It is used to add information about the code, warnings or suggestions. The JS comment
+   - comments are meaningful way to deliver message. It is used to add information about the code, warnings or suggestions. The JS comment
      is ignored by the JS engine
 
 1. **JS Variables:**
 
-   - A JS variable is simply a name of storage location
+   - variable is simply a name of storage location
    - Name must start with a letter (a to z || A to Z), Underscore(\_), or dollar ($) sign
    - after first letter we can use digits (0 to 9)
-   - JS variables are case sensitive, for example v and V are different variables
+   - variables are case sensitive, for example v and V are different variables
 
 1. **Data Types:**
 
    - **Primitive:** String, Number, Boolean, Null, Undefined
    - **Non-Primitive:** Object, Array, Function
 
-1. **JS Operators:**
+1. **JS Operators:** JS operators are symbols that are used to perform operations on operands
 
-   - JS operators are symbols that are used to perform operations on operands
    - **Arithmetic:** +, -, \*, /, %, ++, --
    - **Comparison:** ==, ===, !=, !==, >, >=, <, <=
    - **Bitwise:** &, |, ^, ~, <<, >>
@@ -40,19 +39,18 @@
    - The JS loops are used to iterate the piece of code using for, while, do-while, for-in and for-of loops.
    - for, for-in, for-of, while, do-while
 
-1. **Functions:** JS functions are used to perform operations. We can call JS function many time to reuse the code.
+1. **Functions:** functions are used to perform operations. We can call JS function many time to reuse the code.
 
    - Code Reusability
    - Less Code
    - Easy to Understand
 
-1. **Objects:**
+1. **Objects:** object is an entity having state & behavior (properties & method)
 
-   - A JS object is an entity having state & behavior (properties & method)
    - for-in loop
    - key value pairs
 
-1. **Array:** JS array is an object that represents a collection of similar type of elements
+1. **Array:** array is an object that represents a collection of similar type of elements
 
    - for-of loop
    - concat()
@@ -70,7 +68,7 @@
    - splice( index, deleteCount , add)
    - length
 
-1. **String:** The JS string is an object that represents a sequence of characters.
+1. **String:** string is an object that represents a sequence of characters.
 
    - charAt()
    - concat()
