@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Window Object</title>
+  </head>
+  <body>
+    <button onclick="demo()">Click</button>
+    <script>
+      function Alert() {
+        alert('Successfully'); // alert message
+      }
+      function Confirm() {
+        let result = confirm('Do you want to delete?');
+        document.write(result); // true or false
+      }
+      function Prompt() {
+        let result = prompt('Write Your Name');
+        document.write(result); // Message show
+      }
+      function Open() {
+        open();
+      }
+      function Close() {
+        close();
+      }
+
+      // performs action after specified time like calling function, evaluating expressions
+      function demo() {
+        setTimeout(() => {
+          document.write('After 2s Late');
+        }, [2000]);
+      }
+    </script>
+  </body>
+</html>

@@ -16,3 +16,5 @@
 1. Date Object
 1. Math Object
 1. Number Methods
+
+## Module-2: Beginning JavaScript-2
