@@ -10,25 +10,27 @@
         alert('Successfully'); // alert message
       }
       function Confirm() {
-        let result = confirm('Do you want to delete?');
-        document.write(result); // true or false
+        let result = confirm('Do you want to delete?'); // true or false
+        document.write(result);
       }
       function Prompt() {
-        let result = prompt('Write Your Name');
-        document.write(result); // Message show
+        let result = prompt('Write Your Name'); // true or null
+        document.write(result);
       }
       function Open() {
+        // open tab
         open();
       }
       function Close() {
+        // close tab
         close();
       }
 
       // performs action after specified time like calling function, evaluating expressions
       function demo() {
         setTimeout(() => {
-          document.write('After 2s Late');
-        }, [2000]);
+          document.write('You are 3s Late');
+        }, [3000]);
       }
     </script>
   </body>
