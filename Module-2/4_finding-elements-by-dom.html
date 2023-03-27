@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Common JavaScript Events</title>
+  </head>
+  <body>
+    <!-- id -->
+    <h1 id="title-id"></h1>
+
+    <!-- class -->
+    <h2 class="heading-class"></h2>
+    <h3 class="heading-class"></h3>
+
+    <!-- tagName -->
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate laudantium recusandae, facere veniam
+      assumenda reiciendis fugit aut temporibus, consequatur quia tenetur! Commodi architecto, id laborum
+      animi veritatis qui tempora aliquam.
+    </p>
+
+    <!-- JS -->
+    <script>
+      // id
+      let elementId = document.getElementById('title-id');
+      elementId.innerHTML = 'Finding element by Id';
+
+      // class
+      let elementClass = document.getElementsByClassName('heading-class');
+      elementClass[0].innerHTML = 'Finding element by Class';
+
+      // tagname
+      let elementTagName = document.getElementsByTagName('p');
+      elementTagName[0].innerHTML = 'Tag Name';
+    </script>
+  </body>
+</html>

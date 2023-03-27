@@ -4,10 +4,20 @@
     <title>Common JavaScript Events</title>
   </head>
   <body>
-    <button onclick="demoEvent()">Click Me</button>
+    <!--  -->
+    <button onclick="demoEvent('On Click')">On Click</button>
+    <button onmouseover="demoEvent('On Mouse Over')">On Mouse Over</button>
+    <button onmouseout="demoEvent('On Mouse out')">On Mouse Out</button>
+    <br />
+    <!-- input field -->
+    <input onchange="demoEvent('On Change')" placeholder="on change" />
+    <input onkeyup="demoEvent('On Key Up')" placeholder="on key up" />
+    <input onkeydown="demoEvent('On Key Down')" placeholder="on key down" />
+
+    <!-- JS -->
     <script>
-      function demoEvent() {
-        console.log(window);
+      function demoEvent(msg) {
+        console.log(msg);
       }
     </script>
   </body>
