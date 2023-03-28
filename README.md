@@ -18,3 +18,12 @@
 1. Number Methods
 
 ## Module-2: Beginning JavaScript-2
+
+1. window Object
+1. JS navigator Object
+1. Common JS Events
+1. DOM
+1. Finding HTML Elements
+1. HTML DOM Document
+1. Ajax
+1. Ajax Packages
