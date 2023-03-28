@@ -17,6 +17,8 @@
       assumenda reiciendis fugit aut temporibus, consequatur quia tenetur! Commodi architecto, id laborum
       animi veritatis qui tempora aliquam.
     </p>
+    <br />
+    <button onclick="findQuerySelector()">Query Selector</button>
 
     <!-- JS -->
     <script>
@@ -31,6 +33,16 @@
       // tagname
       let elementTagName = document.getElementsByTagName('p');
       elementTagName[0].innerHTML = 'Tag Name';
+
+      // querySelector
+      function findQuerySelector() {
+        let querySelector1 = document.querySelector('#title-id');
+        querySelector1.innerHTML = 'Finding element id by Query Selector';
+        let querySelector2 = document.querySelector('.heading-class');
+        querySelector2.innerHTML = 'Finding element class by Query Selector';
+        let querySelector3 = document.querySelector('p');
+        querySelector3.innerHTML = 'Finding element tagname by Query Selector';
+      }
     </script>
   </body>
 </html>

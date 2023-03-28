@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1>Title</h1>
+    <button onclick="dom()">Something</button>
+    <button onclick="demo()">Show Name</button>
+    <br />
+    <!-- form -->
+    <input id="num1" type="text" /><br />
+    <input id="num2" type="text" /><br />
+    <button onclick="addTwoNumber()">Add</button>
+
+    <!-- style -->
+    <h2 id="bd">Bangladesh</h2>
+    <br />
+    <button onclick="addStyle()" class="btn btn-success">Add Style</button>
+    <button onclick="removeStyle()" class="btn btn-warning">Remove Style</button>
+
+    <!-- create element -->
+    <ul id="items">
+      <input type="text" id="item" />
+      <button onclick="addItem()">Add List</button>
+    </ul>
+
+    <!-- attribute -->
+    <img id="dom" src="http://www.kirupa.com/html5/images/DOM_js_72.png" width="300" height="300" alt="dom" />
+    <button onclick="changeAttribute()">Change</button>
+
+    <!-- JS -->
+    <script>
+      function dom() {
+        // let info = document.cookie;
+        // let info = document.domain;
+        // let info = document.lastModified;
+        // let info = document.title;
+        let info = document.URL;
+        document.getElementsByTagName('h1')[0].innerHTML = info;
+      }
+
+      function demo() {
+        // document.open('/text/html', 'replace');
+        // document.write('<h2>Sabbir Hossain</h2>');
+        // document.close();
+
+        let w = window.open();
+        w.document.open();
+        w.document.write('<h3>New User</h3>');
+        w.document.close();
+      }
+
+      // add
+      function addTwoNumber() {
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num2').value;
+
+        let result = parseFloat(num1) + parseFloat(num2);
+        alert(result);
+      }
+
+      // add style
+      function addStyle() {
+        let heading = document.getElementById('bd');
+        heading.classList.add('text-success');
+      }
+      // remove style
+      function removeStyle() {
+        let heading = document.getElementById('bd');
+        heading.classList.remove('text-success');
+      }
+
+      // add item
+      function addItem() {
+        let itemValue = document.getElementById('item').value;
+        let listItem = document.createElement('li');
+        listItem.innerHTML = itemValue;
+
+        let items = document.getElementById('items');
+        items.appendChild(listItem);
+        itemValue.value = '';
+      }
+
+      // change attribute
+      function changeAttribute() {
+        let dom = document.getElementById('dom');
+        dom.src = 'https://www.tutorialstonight.com/assets/js/dom-tutorial.webp';
+      }
+    </script>
+  </body>
+</html>
