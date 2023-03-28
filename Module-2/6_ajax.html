@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax</title>
+  </head>
+  <body>
+    <button onclick="fetchGetData()">fetch Get Data</button>
+    <button onclick="fetchPostData()">fetch Post Data</button>
+
+    <!-- JS -->
+    <script>
+      // get
+      function fetchGetData() {
+        const URL = 'https://crud.teamrabbil.com/api/v1/ReadProduct';
+        const configuration = { method: 'GET' };
+
+        fetch(URL, configuration)
+          .then((response) => response.json())
+          .then((result) => console.log(result))
+          .catch((error) => console.error(error));
+      }
+
+      // post
+      function fetchPostData() {
+        const URL = 'https://crud.teamrabbil.com/api/v1/CreateProduct';
+
+        // json object
+        const bodyData = {
+          Img: 'https://fdn2.gsmarena.com/vv/bigpic/huawei-y7-pro-2019-.jpg',
+          ProductCode: ' DUB-LX2',
+          ProductName: 'Huawei Y7 Pro (2019)',
+          Qty: '5',
+          TotalPrice: '16000',
+          UnitPrice: '16000',
+        };
+        const configuration = {
+          method: 'POST',
+          headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(bodyData),
+        };
+
+        fetch(URL, configuration)
+          .then((response) => response.json())
+          .then((result) => console.log(result))
+          .catch((error) => console.error(error));
+      }
+    </script>
+  </body>
+</html>
