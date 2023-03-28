@@ -7,12 +7,14 @@
     <title>Ajax</title>
   </head>
   <body>
-    <button onclick="fetchGetData()">fetch Get Data</button>
-    <button onclick="fetchPostData()">fetch Post Data</button>
+    <!-- Ajax fetch Get Data -->
+    <button onclick="fetchGetData()">Get Data</button>
+    <!-- Ajax fetch Post Data -->
+    <button onclick="fetchPostData()">Post Data</button>
 
-    <!-- JS -->
+    <!-- JS Code -->
     <script>
-      // get
+      // Method: GET
       function fetchGetData() {
         const URL = 'https://crud.teamrabbil.com/api/v1/ReadProduct';
         const configuration = { method: 'GET' };
@@ -23,11 +25,10 @@
           .catch((error) => console.error(error));
       }
 
-      // post
+      // method: POST
       function fetchPostData() {
         const URL = 'https://crud.teamrabbil.com/api/v1/CreateProduct';
-
-        // json object
+        // object
         const bodyData = {
           Img: 'https://fdn2.gsmarena.com/vv/bigpic/huawei-y7-pro-2019-.jpg',
           ProductCode: ' DUB-LX2',

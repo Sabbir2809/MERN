@@ -12,39 +12,59 @@
     <title>DOM</title>
   </head>
   <body>
-    <h1>Title</h1>
-    <button onclick="dom()">Something</button>
-    <button onclick="demo()">Show Name</button>
-    <br />
-    <!-- form -->
-    <input id="num1" type="text" /><br />
-    <input id="num2" type="text" /><br />
-    <button onclick="addTwoNumber()">Add</button>
+    <div>
+      <h1>Title</h1>
+      <button onclick="dom()">Something</button>
+      <button onclick="demo()">Show Name</button>
+      <br />
+      <hr />
+    </div>
+
+    <!-- input field add to number -->
+    <div>
+      <input id="num1" type="text" /><br />
+      <input id="num2" type="text" /><br />
+      <button onclick="addTwoNumber()">Add</button>
+      <hr />
+    </div>
 
     <!-- style -->
-    <h2 id="bd">Bangladesh</h2>
-    <br />
-    <button onclick="addStyle()" class="btn btn-success">Add Style</button>
-    <button onclick="removeStyle()" class="btn btn-warning">Remove Style</button>
+    <div>
+      <h2 id="bd">Bangladesh</h2>
+      <br />
+      <button onclick="addStyle()" class="btn btn-success">Add Style</button>
+      <button onclick="removeStyle()" class="btn btn-warning">Remove Style</button>
+      <hr />
+    </div>
 
     <!-- create element -->
-    <ul id="items">
-      <input type="text" id="item" />
-      <button onclick="addItem()">Add List</button>
-    </ul>
+    <div>
+      <ul id="items">
+        <input type="text" id="item" />
+        <button onclick="addItem()">Add List</button>
+      </ul>
+      <hr />
+    </div>
 
     <!-- attribute -->
-    <img id="dom" src="http://www.kirupa.com/html5/images/DOM_js_72.png" width="300" height="300" alt="dom" />
-    <button onclick="changeAttribute()">Change</button>
+    <div>
+      <img
+        id="dom"
+        src="http://www.kirupa.com/html5/images/DOM_js_72.png"
+        width="300"
+        height="300"
+        alt="dom" />
+      <button onclick="changeAttribute()">Change</button>
+    </div>
 
-    <!-- JS -->
+    <!-- JS Code -->
     <script>
       function dom() {
         // let info = document.cookie;
         // let info = document.domain;
         // let info = document.lastModified;
-        // let info = document.title;
-        let info = document.URL;
+        let info = document.title;
+        // let info = document.URL;
         document.getElementsByTagName('h1')[0].innerHTML = info;
       }
 
@@ -55,11 +75,13 @@
 
         let w = window.open();
         w.document.open();
-        w.document.write('<h3>New User</h3>');
+        w.document.write(
+          '<h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia, consequatur voluptates. Provident at ipsa perferendis quidem, ratione magni cupiditate nobis sequi aperiam velit, quibusdam quo quisquam? Harum magni eveniet similique?</h3>'
+        );
         w.document.close();
       }
 
-      // add
+      // add to number
       function addTwoNumber() {
         let num1 = document.getElementById('num1').value;
         let num2 = document.getElementById('num2').value;
