@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="https://img.freepik.com/premium-vector/indikator-bmi-white-background-chart-concept-vector-icon_100456-6278.jpg"
+      type="image/x-icon" />
+    <meta name="author" content="Sabbir Hossain" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="./style.css" />
+    <!-- Title -->
+    <title>BMI Calculator</title>
+  </head>
+  <body>
+    <!-- title -->
+    <h1>BMI Calculator</h1>
+    <section class="container">
+      <h2>Result: <span id="result"></span></h2>
+      <!-- Weight Input Field -->
+      <fieldset>
+        <legend>Weight (in Kg)</legend>
+        <input type="text" id="weightInput" placeholder="Your Weight" />
+      </fieldset>
+      <!-- Height Input Field -->
+      <fieldset>
+        <legend>Height (in m)</legend>
+        <input type="text" id="heightInput" placeholder="Your Height" />
+      </fieldset>
+      <!-- Button -->
+      <button id="btn" onclick="calculateBMI()">Calculate</button>
+    </section>
+
+    <!-- External JavaScript -->
+    <script src="./app.js"></script>
+  </body>
+</html>
