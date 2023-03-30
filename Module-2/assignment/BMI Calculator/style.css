@@ -5,26 +5,14 @@
 }
 
 body {
-  background-color: azure;
+  background-image: url(https://img.freepik.com/free-vector/body-mass-index-weight-control-with-bmi-healthy-unhealthy-lifestyle-flat-vector-illustration-fitness-indicator-before-after-diet-overall-health-body-fat-scale-concept_88138-795.jpg?w=1060&t=st=1680192347~exp=1680192947~hmac=727d4428e9559d303179cae179babab8d120ef90992895242180ebd7905852f7);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 h1 {
-  color: green;
+  color: slateblue;
   text-align: center;
-}
-
-h2 {
-  color: teal;
-}
-
-button {
-  padding: 10px 68px;
-  margin-top: 10px;
-  background-color: green;
-  color: white;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .container {
@@ -32,4 +20,27 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+fieldset {
+  width: 30%;
+}
+
+input[type='text'] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 13px;
+  margin-top: 10px;
+  width: 15%;
+  background-color: slateblue;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: medium;
+  cursor: pointer;
 }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API</title>
+  </head>
+  <body>
+    <button onclick="getData()">Fetch Data</button>
+    <p id="show"></p>
+
+    <script>
+      // async function getData() {
+      //   try {
+      //     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+      //     const data = await res.json();
+      //     console.log(data);
+      //   } catch (error) {
+      //     console.log('->', error);
+      //   }
+      // }
+
+      function getData() {
+        let show = document.getElementById('show');
+        const URL = 'https://crud.teamrabbil.com/api/v1/ReadProduct';
+        const configuration = { method: 'GET' };
+
+        fetch(URL, configuration)
+          .then((res) => res.json())
+          .then((data) => {
+            show.innerHTML = data.data[0].CreatedDate;
+            console.log(data);
+          })
+          .catch((error) => console.error(error));
+      }
+
+      // post
+      function postRequest() {
+        const URL = 'https://crud.teamrabbil.com/api/v1/CreateProduct';
+        const data = {
+          Img: 'DCL',
+          ProductCode: 'DIU',
+          ProductName: 'Daffodil Computer Limited',
+          Qty: '5',
+          TotalPrice: '300000',
+          UnitPrice: '1',
+        };
+        configuration = {
+          method: 'POST',
+          headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        };
+
+        fetch(URL, configuration)
+          .then((res) => res.json())
+          .then((data) => console.log(data));
+      }
+    </script>
+  </body>
+</html>
