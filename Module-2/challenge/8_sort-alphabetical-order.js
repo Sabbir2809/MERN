@@ -2,5 +2,5 @@
 
 const strings = ['html', 'css', 'javaScript'];
 
-let sort = strings.sort();
-console.log(sort);
+let stringSort = strings.sort();
+console.log(stringSort);
