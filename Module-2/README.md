@@ -1,7 +1,5 @@
 ## Module-2: Beginning JavaScript-2
 
-## Module-2: Beginning JavaScript-2
-
 1. **window object:** The window object represents a window in browser. An object of window is created automatically by the browser
 
    - alert()
