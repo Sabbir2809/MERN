@@ -27,3 +27,5 @@
 1. HTML DOM Document
 1. Ajax
 1. Ajax Packages
+
+## Module-3: JavaScript ES6

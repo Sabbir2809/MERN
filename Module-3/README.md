@@ -1,1 +1,1 @@
-## Module-3: Beginning JavaScript-2
+## Module-3: JavaScript ES6
