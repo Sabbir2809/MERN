@@ -29,3 +29,9 @@
 1. Ajax Packages
 
 ## Module-3: JavaScript ES6
+
+1. Basics
+1. Functions
+1. Arrays
+1. Objects
+1. Class
