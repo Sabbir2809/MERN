@@ -21,3 +21,7 @@
 1. Rotate an array to the right 1 position
 1. Reverse an array
 1. Reverse an String
+1. Create a function that will merge two arrays and return the result as a new array
+1. Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both
+1. Create a function that will receive an array of numbers as argument and will return a new array with distinct elements
+1. Calculate the sum of first 100 prime numbers
