@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#displayTime {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 60px;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 3px;
+  padding: 15px;
+  color: dodgerblue;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
