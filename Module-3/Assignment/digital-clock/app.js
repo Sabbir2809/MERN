@@ -2,7 +2,7 @@
 const showTime = () => {
   // The setInterval() method repeats a block of code at every given timing event.
   setInterval(() => {
-    // time Object
+    // Date Object
     const time = new Date();
     let hours = time.getHours(); // hours
     let minutes = time.getMinutes(); // minutes
@@ -22,7 +22,7 @@ const showTime = () => {
     // time format
     let currentTime = `${hours} : ${minutes} : ${seconds} ${dayOrNight}`;
 
-    // set currentTime
+    // Display the formatted time in the `<div>` element.
     document.getElementById('displayTime').innerText = currentTime;
   }, 1000);
 };
