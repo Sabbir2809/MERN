@@ -1,5 +1,5 @@
 // name import
-import { laptop, smartPhone, Toys } from "./china.js";
+import { laptop, smartPhone, Toys } from './china.js';
 
 // variable
 console.log(smartPhone);

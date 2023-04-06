@@ -1,16 +1,16 @@
 // variable
-let smartPhone = "Huawei, MI, Realme, Oneplus";
+let smartPhone = 'Huawei, MI, Realme, Oneplus';
 
 // function
 function laptop() {
-  let name = "DCL, Asus, Lenevo";
+  let name = 'DCL, Asus, Lenevo';
   console.log(name);
 }
 
 // class
 class Toys {
   sportToys() {
-    console.log("Child Toys.");
+    console.log('Child Toys.');
   }
 }
 

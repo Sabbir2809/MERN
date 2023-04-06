@@ -1,10 +1,9 @@
 // class
 class China {
   laptop() {
-    console.log("DCL");
+    console.log('DCL');
   }
 }
 
 // name export
 export default China;
-
