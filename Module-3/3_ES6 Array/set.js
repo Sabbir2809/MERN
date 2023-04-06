@@ -1,20 +1,19 @@
 // Set is a collection of data. set is almost like array but it does not contain any Duplicates value.
 let colors = new Set();
 
-colors.add("White");
-colors.add("Black");
-colors.add("Green");
-colors.add("Green");
-colors.add("Red");
-colors.add("Yellow");
-colors.add("Blue");
+colors.add('White');
+colors.add('Black');
+colors.add('Green');
+colors.add('Green');
+colors.add('Red');
+colors.add('Yellow');
+colors.add('Blue');
 
 // delete() method
-colors.delete("Green");
+colors.delete('Green');
 
 // values() method
 console.log(colors.values());
-
 
 // size() method
 console.log(colors.size);
@@ -25,10 +24,10 @@ for (let color of colors) {
 }
 
 // has() method
-if(colors.has("Green")){
-  console.log("\nYes");
-}else{
-  console.log("\nNo");
+if (colors.has('Green')) {
+  console.log('\nYes');
+} else {
+  console.log('\nNo');
 }
 
 // clear() method

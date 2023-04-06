@@ -9,7 +9,6 @@ let mul = function (x, y) {
 };
 console.log(mul(5, 7));
 
-
 let numbers = function (...n) {
   return n;
 };
