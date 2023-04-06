@@ -1,13 +1,15 @@
 class FullStack {
   // constructor
   constructor() {}
+
   // method
   FrontEnd() {
-    console.log("React.Js");
+    console.log('React.Js');
   }
+
   // method
   static BackEnd() {
-    console.log("Node.Js, Express.Js, MongoDB");
+    console.log('Node.Js, Express.Js, MongoDB');
   }
 }
 

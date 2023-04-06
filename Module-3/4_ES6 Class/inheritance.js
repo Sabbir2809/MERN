@@ -1,14 +1,14 @@
 // Parent Class
 class Parent {
   personalInfo() {
-    let name = "Abdus Samad Khan";
+    let name = 'Abdus Samad Khan';
     console.log(name);
   }
   profession() {
-    console.log("Deed Writer");
+    console.log('Deed Writer');
   }
   familyInfo() {
-    console.log("There are Seven members in my family.");
+    console.log('There are Seven members in my family.');
   }
 }
 
@@ -16,9 +16,9 @@ class Parent {
 class Child extends Parent {
   // override method (Child Power)
   personalInfo() {
-    let name = "Abdus Samad Khan";
-    let address = "Kanainagar, Sahrail";
-    let phoneNumber = "01715993056";
+    let name = 'Abdus Samad Khan';
+    let address = 'Kanainagar, Sahrail';
+    let phoneNumber = '01715993056';
     let age = 65;
 
     console.log(name);
@@ -27,8 +27,8 @@ class Child extends Parent {
     console.log(age);
   }
   // super keyword
-  Details(){
-    super.profession();   
+  Details() {
+    super.profession();
     super.familyInfo();
   }
 }

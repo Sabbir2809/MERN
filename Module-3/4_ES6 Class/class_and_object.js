@@ -1,12 +1,12 @@
 class DIU {
   CSE() {
-    console.log("CSE, Function inside class.");
+    console.log('CSE, Function inside class.');
   }
   SWE(p) {
-    console.log(p + ", Function inside class.");
+    console.log(p + ', Function inside class.');
   }
   EEE() {
-    console.log("EEE, Function inside class.");
+    console.log('EEE, Function inside class.');
   }
 }
 
@@ -15,5 +15,5 @@ let diuObject = new DIU();
 
 // Function Call
 diuObject.CSE();
-diuObject.SWE("SWE");
+diuObject.SWE('SWE');
 diuObject.EEE();
