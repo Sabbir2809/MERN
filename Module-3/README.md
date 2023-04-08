@@ -32,9 +32,38 @@ JavaScript(JS) is a lightweight, object-oriented, interpreted programming langua
 ### ES6 Features
 
 1. Basics
+
+   - console.log()
+   - use strict
+   - spread operator
+   - rest parameter
+   - dynamic function
+   - var vs let vs const
+   - variable hoisting
+   - loops
+   - objects
+   - condition
+
 1. Functions
+   - simple function
+   - parameterized function
+   - return function
+   - rest parameters
+   - arrow function
+   - anonymous function
 1. Arrays
-1. Objects
+   - simple array
+   - multidimensional array
+   - destructuring
+   - map
+   - set
 1. Class
-1. String
-1. Advance Features
+
+   - class & object
+   - class constructor
+   - inheritance
+   - static keyword
+
+1. Modules
+   - name export, import
+   - default export, import

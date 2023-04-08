@@ -33,5 +33,5 @@
 1. Basics
 1. Functions
 1. Arrays
-1. Objects
 1. Class
+1. Modules
