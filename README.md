@@ -30,8 +30,14 @@
 
 ## Module-3: JavaScript ES6
 
-1. Basics
-1. Functions
-1. Arrays
-1. Class
-1. Modules
+1. ES6 Basic’s
+1. ES6 Function’s
+1. ES6 Array’s
+1. ES6 Object
+1. ES6 Class
+1. ES6 String
+1. ES6 Advance Feature’s
+
+## Module-4: Basic Node.js
+
+1.
