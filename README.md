@@ -40,4 +40,6 @@
 
 ## Module-4: Basic Node.js
 
-1.
+1. http module
+1. http/https protocol (request, response model)
+1. URL Module

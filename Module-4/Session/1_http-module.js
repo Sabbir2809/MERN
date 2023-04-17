@@ -1,7 +1,7 @@
 // import http module
 const http = require('http');
 
-// create server
+// create server & createServer Method call
 const server = http.createServer((req, res) => {
   res.end('Hello Node.js');
 });
