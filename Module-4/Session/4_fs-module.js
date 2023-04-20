@@ -107,7 +107,7 @@ const server = http.createServer((req, res) => {
 
   // :::::: 5. exists() ::::::
   if (req.url === '/') {
-    fs.exists('testt.txt', (result) => {
+    fs.exists('test.txt', (result) => {
       if (result) {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write('True');
