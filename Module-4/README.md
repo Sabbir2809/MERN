@@ -8,16 +8,25 @@
 
 **1. HTTP/HTTPS protocol (request, response model)**
 
-1.  HTTP Request Methods:
-    - GET()
-    - DELETE()
-    - POST()
-    - PUT ()
-    - OPTIONS()
-    - HEAD()
-1.  HTTP Response Methods:
-    - Status Code (200, 404, 500)
-    - Data (Head, Body)
-1.  HTTP Client
-1.  Understanding Package JSON file
-1.  URL Module
+1. HTTP Request Methods:
+   - GET()
+   - DELETE()
+   - POST()
+   - PUT ()
+   - OPTIONS()
+   - HEAD()
+1. HTTP Response Methods:
+   - Status Code (200, 404, 500)
+   - Data (Head, Body)
+1. HTTP Client
+1. Understanding Package JSON file
+1. url Module
+   - host
+   - pathname
+   - search
+1. fs Module
+   - readFile
+   - writeFile
+   - rename
+   - unlink
+   - exists

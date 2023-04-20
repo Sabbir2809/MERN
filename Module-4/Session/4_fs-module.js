@@ -76,7 +76,7 @@ const server = http.createServer((req, res) => {
   //   }
   // }
 
-  // :::::: 4. delete() ::::::
+  // :::::: 4. unlink() ::::::
   // if (req.url === '/') {
   //   fs.unlink('demo.txt', (error) => {
   //     if (error) {
@@ -91,7 +91,7 @@ const server = http.createServer((req, res) => {
   //   });
   // }
 
-  // :::::: 4. deleteSync() ::::::
+  // :::::: 4. unlinkSync() ::::::
   // if (req.url === '/') {
   //   let error = fs.unlinkSync('test.txt');
   //   if (error) {
