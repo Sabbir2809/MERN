@@ -1,8 +1,8 @@
-// array.prototype.find()
+// array.prototype.findIndex()
 
 let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-let result = numbers.find((currentValue, index, arr) => {
+let result = numbers.findIndex((currentValue, index, arr) => {
   // console.log(currentValue, index, arr);
   return currentValue > 5;
 });
