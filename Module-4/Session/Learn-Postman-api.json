@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "a7ad903c-534e-4ff5-b21e-fc4934c8933e",
+		"name": "Learn-Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15226030"
+	},
+	"item": [
+		{
+			"name": "basic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product by Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products?category=fresh-produce&results=4&available=false",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "fresh-produce"
+						},
+						{
+							"key": "results",
+							"value": "4"
+						},
+						{
+							"key": "available",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Single Product Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/products/:productId?product-label=true",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"products",
+						":productId"
+					],
+					"query": [
+						{
+							"key": "product-label",
+							"value": "true"
+						}
+					],
+					"variable": [
+						{
+							"key": "productId",
+							"value": "5851"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carts",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carts/:cartId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts",
+						":cartId"
+					],
+					"variable": [
+						{
+							"key": "cartId",
+							"value": "4jp2DvO9EHjWCkuINlzTk"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add an item to cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": 4641,\r\n    \"quantity\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/carts/:cartId/items",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts",
+						":cartId",
+						"items"
+					],
+					"variable": [
+						{
+							"key": "cartId",
+							"value": "4jp2DvO9EHjWCkuINlzTk"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a cart items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/carts/:cartId/items",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"carts",
+						":cartId",
+						"items"
+					],
+					"variable": [
+						{
+							"key": "cartId",
+							"value": "4jp2DvO9EHjWCkuINlzTk"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://simple-grocery-store-api.glitch.me",
+			"type": "string"
+		}
+	]
+}
