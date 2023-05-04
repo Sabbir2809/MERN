@@ -17,3 +17,8 @@
   1. Headers
   1. Set Cookie
   1. Clear Cookie
+- Request
+  1. post()
+  1. get()
+  1. put()
+  1. delete()
