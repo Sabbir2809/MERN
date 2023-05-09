@@ -1,6 +1,16 @@
 // Dependencies
 const express = require('express');
+const bodyParser = require('body-parser');
+let multer = require('multer');
+
+// call
 const app = express();
+
+// middleware
+app.use(bodyParser.json());
+app.use(multer().array());
+app.use(express.static('public'));
+
 const port = 3000;
 
 // 1. get request
@@ -28,8 +38,18 @@ app.post('/post', (req, res) => {
   // headers
   const contentLength = req.header('Content-Length');
 
-  res.send(`${name} -> ${age} -> ${contentLength}`);
+  // json
+  const JSONData = req.body;
+  const JSONString = JSON.stringify(JSONData);
+  res.send(JSONString);
+
+  // res.send(`${name} -> ${age} -> ${contentLength}`);
   // res.end(`This is simple post() request`);
+});
+
+app.post('/profile', (req, res) => {
+  let reqBody = req.body;
+  res.send(JSON.stringify(reqBody));
 });
 
 app.listen(port, () => {

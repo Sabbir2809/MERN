@@ -22,3 +22,6 @@
   1. get()
   1. put()
   1. delete()
+- Middleware
+  1. Application level
+  1. routing level
