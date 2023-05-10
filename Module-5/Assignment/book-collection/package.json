@@ -1,0 +1,24 @@
+{
+  "name": "book-collection",
+  "version": "1.0.0",
+  "description": "In this assignment i will be building a simple web application using express js. The application will allow users to view and add books to a collection.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "assignment",
+    "express.js",
+    "book-collection"
+  ],
+  "author": "Md. Sabbir Hossain",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "shortid": "^2.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
