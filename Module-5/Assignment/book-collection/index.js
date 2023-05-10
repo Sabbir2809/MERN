@@ -25,23 +25,18 @@ app.use('/books', addBook);
 
 // user to delete a book from the collection when a DELETE request is made to the /books/:id route
 app.delete('/books/:id', async (req, res) => {
-  // which book id delete
-  const id = req.params.id;
-  // file location
-  const location = path.resolve('data', 'books.json');
-  // file read the location
-  const data = await fs.readFile(location);
-  // convert json to object
-  const books = JSON.parse(data);
+  const id = req.params.id; // which book id delete given user
+  const location = path.resolve('data', 'books.json'); // file location
+  const data = await fs.readFile(location); // file read the location
+  const books = JSON.parse(data); // convert json to object
 
   // find a single book by id
   let book = books.find((item) => item.id === id);
-
   // check book not found
   if (!book) {
     return res.status(404).json({ message: 'Book Not Found' });
   }
-  // filter
+  // filter books
   const newBooks = books.filter((item) => item.id !== id);
   // write file
   await fs.writeFile(location, JSON.stringify(newBooks));

@@ -1,10 +1,10 @@
+// Dependencies
 const express = require('express');
+const router = express.Router();
 const path = require('path');
 const fs = require('fs/promises');
 const shortid = require('shortid');
-const router = express.Router();
 
-// user to add a book to the collection when a POST request is made to the /books route
 router.post('/', async (req, res) => {
   // user add book request body
   const book = {
