@@ -1,5 +1,6 @@
 // Dependencies
 const express = require('express');
+// app is an instance of express
 const app = express();
 const port = 3000;
 
@@ -27,11 +28,17 @@ app.put('/user', (req, res) => {
   res.send('Got a PUT request at /user');
 });
 
+// Respond to a PUT request to the /user route:
+app.patch('/user', (req, res) => {
+  res.send('Got a PATCH request at /user');
+});
+
 // Respond to a DELETE request to the /user route:
 app.delete('/user', (req, res) => {
   res.send('Got a DELETE request at /user');
 });
 
+// PORT
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

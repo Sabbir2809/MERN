@@ -1,18 +1,19 @@
+// Dependencies
 const express = require('express');
-
+// app is an instance of express
 const app = express();
 
-// 1. Application level middleware
-// app.use((req, res, next) => {
-//   console.log(`This is middleware`);
-//   next();
-// });
+// 1. Application level middleware:
+app.use((req, res, next) => {
+  console.log(`This is middleware`);
+  next();
+});
 
 app.get('/', (req, res) => {
   res.send('This is Home Page');
 });
 
-// 2. routing level middleware
+// 2. routing level middleware:
 app.use('/about', (req, res, next) => {
   console.log(`This is middleware`);
   next();

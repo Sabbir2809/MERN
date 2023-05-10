@@ -99,9 +99,10 @@
   1. Set Cookie
   1. Clear Cookie
 - Request
-  1. post()
   1. get()
+  1. post()
   1. put()
+  1. patch()
   1. delete()
 - Middleware
   1. Application level

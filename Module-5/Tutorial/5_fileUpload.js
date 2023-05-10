@@ -1,21 +1,24 @@
+// Dependencies
 const express = require('express');
 const multer = require('multer');
 
+// app is an instance of express
 const app = express();
 
+// create storage
 let storage = multer.diskStorage({
-  destination: function (req, file, callBack) {
-    callBack(null, './assets/uploads');
+  destination: (req, file, callback) => {
+    callback(null, './assets/uploads');
   },
-  filename: function (req, file, callBack) {
-    callBack(null, file.originalname);
+  filename: (req, file, callback) => {
+    callback(null, file.originalname);
   },
 });
 
 let upload = multer({ storage: storage }).single('myfile');
 
 app.post('/', (req, res) => {
-  upload(req, res, function (error) {
+  upload(req, res, (error) => {
     if (error) {
       res.send('Error Uploading File');
     } else {
@@ -24,6 +27,7 @@ app.post('/', (req, res) => {
   });
 });
 
+// PORT
 app.listen(3000, () => {
   console.log(`Listening on port http://localhost:3000`);
 });

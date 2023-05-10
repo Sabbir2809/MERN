@@ -2,10 +2,9 @@
   "name": "tutorial",
   "version": "1.0.0",
   "description": "",
-  "main": "5_fileUpload.js",
+  "main": "4_request.js",
   "scripts": {
-    "start": "nodemon 5_fileUpload.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon 4_request.js"
   },
   "keywords": [],
   "author": "",
