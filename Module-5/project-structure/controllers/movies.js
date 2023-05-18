@@ -1,22 +1,8 @@
 // Dependencies
-const router = require('express').Router();
 const movieDetails = require('../data/movieDetails');
 
-// GET/movie/:movieId
-// GET/movie/top_rated
-// POST/movie/:movie_id/rating
-// DELETE/movie/:movie_id/rating
-
-const requiredJSON = (req, res, next) => {
-  if (!req.is('application/json')) {
-    res.json({ msg: 'content type must be application/json' });
-  } else {
-    next();
-  }
-};
-
-//
-router.get('/top_rated', (req, res, next) => {
+// get single movie
+exports.getSingleMovie = (req, res) => {
   let page = req.query.page;
   if (!page) {
     page = 1;
@@ -26,10 +12,10 @@ router.get('/top_rated', (req, res, next) => {
   });
   const indexToStart = (page - 1) * 20;
   res.json(results.slice(indexToStart, indexToStart + 19));
-});
+};
 
-//
-router.get('/:movieId', (req, res, next) => {
+// get top rated movie
+exports.getTopRatedMovies = (req, res) => {
   const movieId = req.params.movieId;
   const results = movieDetails.find((movie) => {
     return movie.id == Number(movieId);
@@ -41,13 +27,13 @@ router.get('/:movieId', (req, res, next) => {
   } else {
     res.json(results);
   }
-});
+};
 
-//
-router.post('/:movieId', requiredJSON, (req, res, next) => {
+// post rating
+exports.postMovieRating = (req, res) => {
   const movieId = req.params.movieId;
-  console.log(movieId);
   const userRating = req.body.value;
+
   if (userRating < 0.5 || userRating > 10) {
     res.json({
       msg: 'Rating must be between 0.5 and 10',
@@ -58,15 +44,10 @@ router.post('/:movieId', requiredJSON, (req, res, next) => {
       status: 200,
     });
   }
-});
+};
 
-//
-router.delete('/:movieId/rating', requiredJSON, (req, res, next) => {
+// delete movie rating
+exports.deleteMovieRating = (req, res) => {
   const movieId = req.params.movieId;
-  res.json({
-    msg: 'Rating Deleted',
-  });
-});
-
-// export
-module.exports = router;
+  res.json({ msg: 'Rating Deleted' });
+};

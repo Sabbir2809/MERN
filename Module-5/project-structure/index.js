@@ -2,10 +2,12 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const home = require('./routes/index');
-const movie = require('./routes/movie');
-const search = require('./routes/search');
 require('dotenv').config();
+const baseURL = require('./routes/index');
+const mostPopularMovie = require('./routes/mostPopularMovie');
+const movies = require('./routes/movies');
+const searchMovies = require('./routes/searchMovies');
+const { auth } = require('./middleware/auth');
 
 // app instance of express()
 const app = express();
@@ -16,21 +18,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(helmet());
-
-app.use((req, res, next) => {
-  if (req.query.api_key != '12345') {
-    res.status(401).json({ message: 'Invalid API Key' });
-  } else {
-    next();
-  }
-});
+app.use(auth);
 
 // routers: middleware
-app.use('/', home);
-app.use('/movie', movie);
-app.use('/search', search);
+app.use('/', baseURL);
+app.use('/most-popular', mostPopularMovie);
+app.use('/movies', movies);
+app.use('/search', searchMovies);
 
+// PORT
 const PORT = process.env.PORT || 4000;
-app.listen(process.env.PORT, () => {
+app.listen(PORT, () => {
   console.log(`Server is Running Successfully at http://localhost:${PORT}`);
 });
