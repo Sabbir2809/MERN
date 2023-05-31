@@ -25,14 +25,6 @@ app.use(limiter);
 // routes
 app.use('/api', router);
 
-// undefined route
-app.use('*', (req, res) => {
-  res.status(404).json({
-    status: 'Fail',
-    data: 'Not Found',
-  });
-});
-
 // ERROR - client error handling
 app.use((req, res, next) => {
   next(createError(404, 'Route Not Found!'));
