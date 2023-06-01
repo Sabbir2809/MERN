@@ -6,7 +6,6 @@ const helmet = require('helmet');
 const hpp = require('hpp');
 const mongoSanitize = require('express-mongo-sanitize');
 const rateLimit = require('express-rate-limit');
-const createError = require('http-errors');
 const router = require('./routes/api');
 
 // Middleware
@@ -26,8 +25,8 @@ app.use(limiter);
 app.use('/api', router);
 
 // ERROR - client error handling
-app.use((req, res, next) => {
-  next(createError(404, 'Route Not Found!'));
+app.use('*', (req, res) => {
+  res.status(404).json({ status: 'Fail', message: 'Router Not Found!' });
 });
 
 // ERROR - server error handling

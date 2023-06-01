@@ -1,4 +1,4 @@
-# Project Name: Book Management API
+# Book Management API
 
 ## Objective:
 
@@ -20,3 +20,5 @@ Define a book schema with the following fields:
 - Author: Required, string
 - Description: Optional, string
 - PublishedYear: Optional, number
+
+Connect the API to a MongoDB database using Mongoose.

@@ -1,17 +1,16 @@
 // Dependencies
 const router = require('express').Router();
-const { allBooks } = require('../controllers/allBooks');
 const { createBook } = require('../controllers/createBook');
 const { deleteBook } = require('../controllers/deleteBook');
-const { specificBook } = require('../controllers/specificBook');
+const { getAllBooks } = require('../controllers/getAllBooks');
+const { getSpecificBook } = require('../controllers/getSpecificBook');
 const { updateBook } = require('../controllers/updateBook');
 
-// Retrieve all books
-router.get('/books', allBooks);
-router.get('/book', specificBook);
+router.get('/books', getAllBooks);
+router.get('/books/:id', getSpecificBook);
 router.post('/books', createBook);
-router.put('/books', updateBook);
-router.delete('/books', deleteBook);
+router.put('/books/:id', updateBook);
+router.delete('/books/:id', deleteBook);
 
 // exports
 module.exports = router;
