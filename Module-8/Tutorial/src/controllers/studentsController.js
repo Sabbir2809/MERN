@@ -1,8 +1,8 @@
 const Student = require('../models/studentModel');
 
-//@description: Create New Student
-//@route: POST - /api/student
-//@access: public
+// @description: Create New Student
+// @route: POST - /api/student
+// @access: public
 exports.createStudent = async (req, res, next) => {
   const reqBody = req.body;
   try {
@@ -16,12 +16,12 @@ exports.createStudent = async (req, res, next) => {
   }
 };
 
-//@description: Get All Students
-//@route: GET - /api/students
-//@access: public
+// @description: Get All Students
+// @route: GET - /api/students
+// @access: public
 exports.getStudents = async (req, res) => {
   const query = {};
-  const projection = 'name age studentId department';
+  const projection = 'name age studentId mobileNumber department';
 
   try {
     const students = await Student.find(query, projection);
@@ -65,7 +65,7 @@ exports.deleteStudent = async (req, res) => {
   try {
     await Student.deleteOne(query);
     res.status(200).json({
-      status: `This Student ID ${id} Information Successfully Deleted.`,
+      status: `Student ID: ${id}, Information Successfully Deleted.`,
     });
   } catch (error) {
     res.status(400).json({ status: 'Fail', message: error.toString() });

@@ -1,16 +1,24 @@
+// @Dependencies
+const router = require('express').Router();
+const { encodedToken, decodedToken } = require('../controllers/JWT');
+const { authIssue } = require('../controllers/authIssueController');
 const {
   createStudent,
   getStudents,
   updateStudent,
   deleteStudent,
 } = require('../controllers/studentsController');
+const { authVerify } = require('../middleware/authVerifyMiddleware');
 
-// @Dependencies
-const router = require('express').Router();
+// CRUD with JWT Auth
+router.get('/auth/user', authIssue);
+router.post('/create/student', authVerify, createStudent);
+router.get('/read/students', authVerify, getStudents);
+router.put('/update/student/:id', authVerify, updateStudent);
+router.delete('/delete/student/:id', authVerify, deleteStudent);
 
-router.post('/student', createStudent);
-router.get('/students', getStudents);
-router.put('/student/:id', updateStudent);
-router.delete('/student/:id', deleteStudent);
+// Practice with JWT Encoded and Decoded
+router.get('/auth/encodedToken', encodedToken);
+router.get('/auth/decodedToken', decodedToken);
 
 module.exports = router;
