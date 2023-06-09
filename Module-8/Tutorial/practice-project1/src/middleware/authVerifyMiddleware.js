@@ -9,12 +9,8 @@ exports.authVerify = async (req, res, next) => {
 
   try {
     await jwt.verify(token, process.env.SECRET_KEY);
-
     next();
   } catch (error) {
-    res.status(401).json({
-      status: 'Unauthorized',
-      error: error.toString(),
-    });
+    res.status(401).json({ status: 'Unauthorized', error: error.toString() });
   }
 };

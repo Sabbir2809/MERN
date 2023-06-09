@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+// Schema
 const OTPSchema = Schema(
   {
     email: {
@@ -16,6 +17,8 @@ const OTPSchema = Schema(
   { timestamps: true, versionKey: false }
 );
 
+// model
 const OTPModel = model('otps', OTPSchema);
 
+// exports
 module.exports = OTPModel;

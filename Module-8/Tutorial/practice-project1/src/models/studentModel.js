@@ -39,12 +39,7 @@ const studentSchema = Schema(
       default: 'B.Sc in CSE',
     },
   },
-  {
-    versionKey: false,
-  },
-  {
-    timestamps: true,
-  }
+  { timestamps: true, versionKey: false }
 );
 
 const Student = model('students', studentSchema);
