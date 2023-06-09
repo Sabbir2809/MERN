@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-const connectDB = async (options = { autoIndex: true }) => {
+const connectDB = async (options = {}) => {
   try {
     await mongoose.connect(process.env.URI, options);
-
-    console.log(`Successfully connected to MongoDB!`);
+    console.log('Successfully connected to MongoDB!');
 
     mongoose.connection.on('error', (error) => {
       console.error('Database Connection Error: ', error.toString());

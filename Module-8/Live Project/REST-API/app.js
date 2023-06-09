@@ -23,7 +23,9 @@ app.use(limiter);
 
 // ERROR - client error handling
 app.use('*', (req, res) => {
-  res.status(404).json({ status: 'Fail', message: 'Router Not Found!' });
+  res.status(404).json({
+    message: 'Route Not Found!',
+  });
 });
 
 // exports
