@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 exports.authVerify = async (req, res, next) => {
   const token = req.headers['token'];
   if (!token) {
-    return res.status(401).json({ message: 'Invalid Token' });
+    return res.status(401).json({ status: 'Fail', message: 'Invalid Token' });
   }
   try {
     const decoded = jwt.verify(token, process.env.SECRET_KEY);

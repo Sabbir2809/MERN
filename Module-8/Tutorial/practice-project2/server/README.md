@@ -1,5 +1,9 @@
 # Task Manager
 
+## POSTMAN Documentation:
+
+https://documenter.getpostman.com/view/15226030/2s93sc4sWq
+
 ## Project Features:
 
 1. User Registration

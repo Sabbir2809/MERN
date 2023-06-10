@@ -41,9 +41,9 @@ exports.login = async (req, res) => {
         data: token,
       });
     } else {
-      res.status(200).json({
+      res.status(401).json({
         status: 'Fail',
-        data: token,
+        message: 'Unauthorized Access',
       });
     }
   } catch (error) {
