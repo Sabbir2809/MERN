@@ -1,8 +1,6 @@
-# Task Manager
+# Task Manager REST API Project
 
-## POSTMAN Documentation:
-
-https://documenter.getpostman.com/view/15226030/2s93sc4sWq
+[POSTMAN Documentation](https://documenter.getpostman.com/view/15226030/2s93sc4sWq)
 
 ## Project Features:
 
