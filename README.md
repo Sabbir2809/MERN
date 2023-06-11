@@ -92,7 +92,7 @@
 
 1. **Server Side Four topic we need to focus:**
 
-   - Request
+   - Request (body, headers)
    - Response (body, cookies, headers, status code)
    - Middleware
    - Database Operations
@@ -130,7 +130,7 @@
 1. Introducing JSON, Understanding JSON Structure and Best Practices of JSON
 1. Understanding HTTP Client
 1. HTTP Request Segment (body, headers, url parameter) and Best Practices
-1. Compare GET and POST , When use GET and POST
+1. Compare GET and POST, When use GET and POST
 1. Request Rate Limiting
 1. HTTP Request Segment (body, headers, cookie) and Best Practices
 1. Response Status Code
@@ -232,18 +232,4 @@
 1. Mongoose Validation
 1. Documentation Using Postman
 1. JWT Token Authentication
-
-1. **Project Features: Task Manager REST API**
-
-   - User Registration
-   - User Login
-   - User Auth by JWT Token
-   - User Profile Read
-   - User Profile Update
-   - User To-do List Create
-   - User To-do List Read
-   - User To-do List Update
-   - User To-do List Delete
-   - User To-do List Complete/Cancel Mark
-   - User To-do List Complete/Cancel Filter
-   - User To-do List Data Filter
+1. Task Manager REST API Project
