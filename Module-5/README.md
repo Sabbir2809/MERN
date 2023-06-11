@@ -11,7 +11,7 @@
    - Middleware
    - Database Operations
 
-1. **Response**
+1. **Response:**
 
    - Simple String
    - Status Code
@@ -22,7 +22,7 @@
    - Set Cookie
    - Clear Cookie
 
-1. **Request**
+1. **Request:**
 
    - get()
    - post()
@@ -30,7 +30,7 @@
    - patch()
    - delete()
 
-1. **Middleware**
+1. **Middleware:**
 
    - Application level
    - routing level

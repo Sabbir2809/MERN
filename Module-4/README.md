@@ -30,13 +30,13 @@
 1. HTTP Client
 1. Understanding Package JSON file
 
-1. **url Module**
+1. **url Module:**
 
    - host
    - pathname
    - search
 
-1. **fs Module**
+1. **fs Module:**
 
    - readFile
    - writeFile
