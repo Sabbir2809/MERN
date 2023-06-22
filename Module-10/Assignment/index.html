@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
+    <title>Learn Bootstrap</title>
+    <!-- CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- :::::::::: Header Section Start :::::::::: -->
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">Bootstrap App</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./table.html">Table with Pagination</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./form.html">Form</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link text-light"
+                  id="modal-trigger"
+                  data-bs-toggle="modal"
+                  data-bs-target="#myModal"
+                  href="#"
+                  >Open Modal</a
+                >
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-secondary" id="mode-toggle">Toggle Dark Mode</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- :::::::::: Header Section End :::::::::: -->
+
+    <!-- :::::::::: Modal Start :::::::::: -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal Title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal content goes here...</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- :::::::::: Modal End :::::::::: -->
+
+    <!-- :::::::::: Main Section Start :::::::::: -->
+    <main>
+      <div class="container mt-4">
+        <h1 class="text-primary">Welcome to Bootstrap App</h1>
+        <div class="spinner-border text-primary mt-4" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="row gy-4">
+          <div class="col-md-6 gy-5">
+            <div class="card">
+              <div class="card-body">
+                <p class="card-title h4">What is Bootstrap?</p>
+                <p class="card-text">
+                  Bootstrap simplifies the process of building modern, responsive, and visually appealing web
+                  applications by providing a well-tested and reliable foundation of CSS styles, components,
+                  and JavaScript plugins. It saves development time, ensures consistency, and enables
+                  developers
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 gy-5">
+            <div class="card">
+              <div class="card-body">
+                <p class="card-title h4">Why Import Bootstrap in our Project?</p>
+                <p class="card-text">
+                  Importing Bootstrap into your project saves development time, provides a responsive and
+                  consistent design, ensures cross-browser compatibility, allows for customization, and
+                  benefits from a supportive community. It is a powerful tool for building modern and visually
+                  appealing web applications efficiently.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- alert -->
+        <div class="alert alert-success mt-4 text-center" role="alert">
+          Compare Bootstrap-4 and Bootstrap-5
+        </div>
+
+        <!-- Card -->
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col gy-5">
+            <div class="card bg-primary text-light">
+              <img
+                src="https://propiece.s3-ap-northeast-1.amazonaws.com/article_image/20191009015619-00000280-19rqbedu9mbg6xm8o6d7q9a.png"
+                class="card-img-top img-fluid"
+                alt="image1" />
+              <div class="card-body">
+                <h5 class="card-title">Bootstrap 4</h5>
+                <p class="card-text">
+                  These are just some of the key differences between Bootstrap 4 and Bootstrap 5. It's worth
+                  noting that migrating from Bootstrap 4 to Bootstrap 5 may require some adjustments in your
+                  existing projects, but the benefits of the newer version, such as improved customization
+                  options and performance, make it a worthwhile transition for many developers.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col gy-5">
+            <div class="card bg-primary text-light">
+              <img
+                src="https://i.morioh.com/2019/12/17/f1ce6a0af5cb.jpg"
+                class="card-img-top img-fluid"
+                alt="image2" />
+              <div class="card-body">
+                <h5 class="card-title">Bootstrap 5</h5>
+                <p class="card-text">
+                  These are just some of the key differences between Bootstrap 4 and Bootstrap 5. It's worth
+                  noting that migrating from Bootstrap 4 to Bootstrap 5 may require some adjustments in your
+                  existing projects, but the benefits of the newer version, such as improved customization
+                  options and performance, make it a worthwhile transition for many developers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Un-order list  -->
+        <div class="mt-4">
+          <h2 class="text-light text-center bg-primary">Frontend Technology</h2>
+          <ul class="list-group">
+            <li class="list-group-item">HTML</li>
+            <li class="list-group-item">CSS</li>
+            <li class="list-group-item">Bootstrap</li>
+            <li class="list-group-item">JavaScript</li>
+            <li class="list-group-item">React</li>
+          </ul>
+        </div>
+
+        <!-- Order List -->
+        <div class="mt-4">
+          <h2 class="text-light text-center bg-primary">Backend Technology</h2>
+          <ul class="list-group list-group-numbered">
+            <li class="list-group-item">HTML</li>
+            <li class="list-group-item">CSS</li>
+            <li class="list-group-item">Bootstrap</li>
+            <li class="list-group-item">JavaScript</li>
+            <li class="list-group-item">React</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <!-- :::::::::: Main Section End :::::::::: -->
+
+    <!-- :::::::::: Footer :::::::::: -->
+    <footer class="bg-primary text-light text-center py-3 mt-4">
+      <div class="container">Bootstrap Assignment with Md. Sabbir Hossain</div>
+    </footer>
+
+    <!-- :::::::::: JS :::::::::: -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
