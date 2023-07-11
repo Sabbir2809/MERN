@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({ api }) => {
   return (
     <div>
-      <p>All Rights Reserved</p>
+      <p>{api.footerContent}</p>
     </div>
   );
 };
