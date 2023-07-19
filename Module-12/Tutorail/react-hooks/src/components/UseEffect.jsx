@@ -13,13 +13,13 @@ const UseEffect = () => {
     (async () => {
       const response = await fetch(`https://dummyjson.com/quotes`);
       const result = await response.json();
-      await setData(result);
+      setData(result);
     })();
   }, []);
 
   return (
     <div>
-      <p>{JSON.stringify(data)}</p>
+      <p>{JSON.stringify(data.quotes[2])}</p>
     </div>
   );
 };

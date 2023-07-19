@@ -162,3 +162,7 @@
 1. Passing Object to child component
 1. Passing function to child component
 1. Managing click event and forum submit
+
+---
+
+### Module-12: Beginning React-1
