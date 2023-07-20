@@ -143,7 +143,7 @@
 
 --
 
-### Module-11: Beginning React-1
+### Module-11: React Structure, Component, JSX, Rendering
 
 1. React Introduction
 1. Create New React APP using vite
@@ -165,4 +165,4 @@
 
 ---
 
-### Module-12: Beginning React-1
+### Module-12: React Hooks, State Management & Routing

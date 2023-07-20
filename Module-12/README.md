@@ -1,1 +1,1 @@
-### Module-12: Beginning React-2
+### Module-12: React Hooks, State Management & Routing

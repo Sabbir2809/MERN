@@ -1,4 +1,4 @@
-### Module-11: Beginning React-1
+### Module-11: React Structure, Component, JSX, Rendering
 
 React is a popular JavaScript library used for building user interfaces. It was developed by Facebook and is now maintained by a community of developers. React uses a component-based architecture, where UI
 elements are broken down into reusable and modular pieces.
