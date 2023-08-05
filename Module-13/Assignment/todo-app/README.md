@@ -1,6 +1,8 @@
 # Assignment: Building a Todo App using Redux
 
-## Requirements:
+## [Live Link](https://todoapp-with-react-redux.netlify.app/)
+
+### Requirements:
 
 1. Design the user interface for the Todo app, including the following elements:
 1. An input field for adding new todo items.
