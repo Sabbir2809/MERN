@@ -1,10 +1,15 @@
 import React from 'react';
-import TodoPage from './pages/TodoPage';
+import AddTodoForm from './components/AddTodoForm';
+import TodoList from './components/TodoList';
+import TotalCompleteItems from './components/TotalCompleteItems';
 
 const App = () => {
   return (
-    <div>
-      <TodoPage />
+    <div className='container bg-white p-4 mt-5'>
+      <h1 className='text-primary'>Todo App</h1>
+      <AddTodoForm />
+      <TodoList />
+      <TotalCompleteItems />
     </div>
   );
 };

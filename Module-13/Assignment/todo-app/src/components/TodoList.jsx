@@ -1,40 +1,16 @@
 import React from 'react';
+import TodoItem from './TodoItem';
 import { useSelector } from 'react-redux';
-import { DeleteTodoAlert } from './DeleteTodoAlert';
 
 const TodoList = () => {
-  const todoItems = useSelector((state) => state.todo.value);
+  const todos = useSelector((state) => state.todos);
 
   return (
-    <div className='container my-4'>
-      <div className='row'>
-        <div className='col-12'>
-          <table className='table table-hover'>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Task Name</th>
-                <th>Status</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {todoItems.map((task, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{task}</td>
-                  <td>
-                    <button onClick={() => DeleteTodoAlert(index)} className='btn btn-sm btn-danger'>
-                      Remove
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    <ul className='list-group'>
+      {todos.map((todo) => (
+        <TodoItem id={todo.id} title={todo.title} completed={todo.completed} />
+      ))}
+    </ul>
   );
 };
 
