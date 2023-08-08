@@ -15,9 +15,20 @@ exports.createProduct = async (req, res) => {
 // R = Read Operations: Read operations retrieve documents from a collection; i.e. query a collection for documents.
 exports.readProducts = async (req, res) => {
   const query = {};
-  const projection = {};
   try {
-    const products = await productsModel.find(query, projection);
+    const products = await productsModel.find(query);
+    res.status(200).json({ status: 'Success', data: products });
+  } catch (error) {
+    res.status(400).json({ status: 'Fail', error: error.message });
+  }
+};
+
+// Read By Id
+exports.readByProductId = async (req, res) => {
+  const id = req.params.id;
+  const query = { _id: id };
+  try {
+    const products = await productsModel.find(query);
     res.status(200).json({ status: 'Success', data: products });
   } catch (error) {
     res.status(400).json({ status: 'Fail', error: error.message });

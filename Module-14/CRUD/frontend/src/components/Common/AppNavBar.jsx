@@ -20,9 +20,6 @@ const AppNavBar = () => {
           <NavLink className='nav-link' to='/create-product'>
             Create
           </NavLink>
-          <NavLink className='nav-link' to='/update-product'>
-            Update
-          </NavLink>
         </Nav>
       </Container>
     </Navbar>

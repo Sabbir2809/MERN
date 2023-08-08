@@ -3,6 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { errorToast, isEmpty, successToast } from '../../helpers/validationHelper';
 import { createOperation } from '../../api/CRUD';
 import FullScreenLoader from '../Common/FullScreenLoader';
+import { useNavigate } from 'react-router';
 
 const CreateForm = () => {
   let productName,
@@ -12,6 +13,8 @@ const CreateForm = () => {
     quantity,
     totalPrice,
     loader = useRef();
+
+  const navigate = useNavigate();
 
   const handleSaveProduct = () => {
     let _productName = productName.value;
@@ -45,6 +48,7 @@ const CreateForm = () => {
           unitPrice.value = '';
           quantity.value = '';
           totalPrice.value = '';
+          navigate('/', { replace: true });
         } else {
           errorToast('Request Fail Try Again');
         }
@@ -131,12 +135,12 @@ const CreateForm = () => {
               id='totalPrice'
             />
           </div>
-        </div>
-        <div className='row'>
-          <div className='col-md-4 mt-4'>
-            <button onClick={handleSaveProduct} className='btn btn-primary w-100'>
-              Save Product
-            </button>
+          <div className='row'>
+            <div className='col-md-4 mt-4'>
+              <button onClick={handleSaveProduct} className='btn btn-primary w-100'>
+                Save Product
+              </button>
+            </div>
           </div>
         </div>
       </div>

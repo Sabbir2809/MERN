@@ -45,8 +45,33 @@ export const readOperation = async () => {
     });
 };
 
+// read product by id
+export const readProductByIdOperation = async (id) => {
+  return await axios
+    .get(`${BASE_URL}/api/v1/read-by-product-id/${id}`)
+    .then((res) => {
+      if (res.status === 200) {
+        return res.data['data'];
+      } else {
+        return false;
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      return false;
+    });
+};
+
 // update
-export const Update = async (id, productName, productCode, image, unitPrice, quantity, totalPrice) => {
+export const updateOperation = async (
+  id,
+  productName,
+  productCode,
+  image,
+  unitPrice,
+  quantity,
+  totalPrice
+) => {
   const updateBody = {
     productName: productName,
     productCode: productCode,

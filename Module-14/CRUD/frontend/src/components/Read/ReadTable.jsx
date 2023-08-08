@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react';
 import FullScreenLoader from '../Common/FullScreenLoader';
 import { deleteOperation, readOperation } from '../../api/CRUD';
 import { errorToast, successToast } from '../../helpers/validationHelper';
+import { useNavigate } from 'react-router';
 
 const ReadTable = () => {
   const [dataList, setDataList] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     readOperation().then((data) => {
@@ -12,13 +14,15 @@ const ReadTable = () => {
     });
   }, []);
 
-  const handleUpdateProduct = (id) => {};
+  const handleUpdateProduct = (id) => {
+    navigate('/update-product/' + id, { replace: true });
+  };
 
   const handleDeleteProduct = (id) => {
     deleteOperation(id).then((result) => {
       if (result === true) {
         successToast('Product Deleted Successfully');
-        window.location.reload(false);
+        window.location.reload(true);
       } else {
         errorToast('Request Fail, Please Try Again...');
       }
@@ -52,7 +56,9 @@ const ReadTable = () => {
                 <td>{item.quantity}</td>
                 <td>{item.totalPrice}</td>
                 <td>
-                  <button onClick={handleUpdateProduct()} className='btn btn-warning btn-sm mx-1'>
+                  <button
+                    onClick={() => handleUpdateProduct(item._id)}
+                    className='btn btn-warning btn-sm mx-1'>
                     Update
                   </button>
                   <button onClick={() => handleDeleteProduct(item._id)} className='btn btn-danger btn-sm'>
