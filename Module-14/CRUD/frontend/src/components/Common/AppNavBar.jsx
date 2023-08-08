@@ -15,12 +15,12 @@ const AppNavBar = () => {
         </Navbar.Brand>
         <Nav className='me-auto'>
           <NavLink className='nav-link' to='/'>
-            Read
+            Home
           </NavLink>
-          <NavLink className='nav-link' to='/create'>
+          <NavLink className='nav-link' to='/create-product'>
             Create
           </NavLink>
-          <NavLink className='nav-link' to='/update'>
+          <NavLink className='nav-link' to='/update-product'>
             Update
           </NavLink>
         </Nav>

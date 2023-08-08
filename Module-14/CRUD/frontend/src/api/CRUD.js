@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const BASE_URL = `http://localhost:8000`;
+
 // create
-export const Create = async (productName, productCode, image, unitPrice, quantity, totalPrice) => {
+export const createOperation = async (productName, productCode, image, unitPrice, quantity, totalPrice) => {
   const postBody = {
     productName: productName,
     productCode: productCode,
@@ -11,18 +13,36 @@ export const Create = async (productName, productCode, image, unitPrice, quantit
     totalPrice: totalPrice,
   };
 
-  await axios
-    .post('/api/v1/create-product', postBody)
-    .then((res) => res.data)
-    .catch((err) => console.error(err));
+  return await axios
+    .post(`${BASE_URL}/api/v1/create-product`, postBody)
+    .then((res) => {
+      if (res.status === 201) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      return false;
+    });
 };
 
 // read
-export const Read = async () => {
-  await axios
-    .get('/api/v1/read-product')
-    .then((res) => res.data.data)
-    .catch((err) => console.error(err));
+export const readOperation = async () => {
+  return await axios
+    .get(`${BASE_URL}/api/v1/read-products`)
+    .then((res) => {
+      if (res.status === 200) {
+        return res.data['data'];
+      } else {
+        return false;
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      return false;
+    });
 };
 
 // update
@@ -35,16 +55,34 @@ export const Update = async (id, productName, productCode, image, unitPrice, qua
     quantity: quantity,
     totalPrice: totalPrice,
   };
-  await axios
-    .patch(`/api/v1/update-product/${id}`, updateBody)
-    .then((res) => res.data.data)
-    .catch((err) => console.error(err));
+  return await axios
+    .patch(`${BASE_URL}/api/v1/update-product/${id}`, updateBody)
+    .then((res) => {
+      if (res.status === 200) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      return false;
+    });
 };
 
 // delete
-export const Delete = async (id) => {
-  await axios
-    .delete('/api/v1/delete-product/' + id)
-    .then((res) => res.data.data)
-    .catch((err) => console.error(err));
+export const deleteOperation = async (id) => {
+  return await axios
+    .delete(`${BASE_URL}/api/v1/delete-product/${id}`)
+    .then((res) => {
+      if (res.status === 200) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      return false;
+    });
 };
