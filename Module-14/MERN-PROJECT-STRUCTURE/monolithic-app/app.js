@@ -24,7 +24,7 @@ app.use(limiter);
 
 // Application Level Middleware
 app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ urlencoded: true, extended: true, limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Front-End Tagging
 app.use(express.static('frontend/dist'));

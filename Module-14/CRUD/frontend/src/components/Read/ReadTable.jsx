@@ -6,13 +6,14 @@ import { useNavigate } from 'react-router';
 
 const ReadTable = () => {
   const [dataList, setDataList] = useState([]);
+  const [id, setId] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     readOperation().then((data) => {
       setDataList(data);
     });
-  }, []);
+  }, [id]);
 
   const handleUpdateProduct = (id) => {
     navigate('/update-product/' + id, { replace: true });
@@ -22,7 +23,7 @@ const ReadTable = () => {
     deleteOperation(id).then((result) => {
       if (result === true) {
         successToast('Product Deleted Successfully');
-        window.location.reload(true);
+        setId(id);
       } else {
         errorToast('Request Fail, Please Try Again...');
       }
