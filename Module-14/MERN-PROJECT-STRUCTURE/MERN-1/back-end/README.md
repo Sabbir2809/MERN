@@ -1,3 +1,3 @@
-` npm i express express-rate-limit cors helmet npp mongoose express-mongo-sanitize dotenv  jsonwebtoken nodemailer`
+Project for Project: `npm install express express-rate-limit cors helmet npp mongoose express-mongo-sanitize dotenv jsonwebtoken bcrypt nodemailer`
 
-`npm i -D nodemon morgan`
+Package for Dev Dependencies: `npm install -D nodemon morgan`
