@@ -4,8 +4,10 @@ import { errorToast, isEmpty, successToast } from '../../helpers/validationHelpe
 import { createOperation } from '../../api/CRUD';
 import FullScreenLoader from '../Common/FullScreenLoader';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 const CreateForm = () => {
+  const navigate = useNavigate();
   let productName,
     productCode,
     image,
@@ -14,45 +16,36 @@ const CreateForm = () => {
     totalPrice,
     loader = useRef();
 
-  const navigate = useNavigate();
-
   const handleSaveProduct = () => {
-    let _productName = productName.value;
-    let _productCode = productCode.value;
-    let _image = image.value;
-    let _unitPrice = unitPrice.value;
-    let _quantity = quantity.value;
-    let _totalPrice = totalPrice.value;
+    const newProduct = {
+      productName: productName.value,
+      productCode: productCode.value,
+      image: image.value,
+      unitPrice: unitPrice.value,
+      quantity: quantity.value,
+      totalPrice: totalPrice.value,
+    };
 
-    if (isEmpty(_productName)) {
+    if (isEmpty(newProduct.productName)) {
       errorToast('Product Name is Required');
-    } else if (isEmpty(_productCode)) {
+    } else if (isEmpty(newProduct.productCode)) {
       errorToast('Product Code is Required');
-    } else if (isEmpty(_image)) {
+    } else if (isEmpty(newProduct.image)) {
       errorToast('Product Image URL is Required');
-    } else if (isEmpty(_unitPrice)) {
+    } else if (isEmpty(newProduct.unitPrice)) {
       errorToast('Product Unit Price is Required');
-    } else if (isEmpty(_quantity)) {
+    } else if (isEmpty(newProduct.quantity)) {
       errorToast('Product Quantity is Required');
-    } else if (isEmpty(_totalPrice)) {
+    } else if (isEmpty(newProduct.totalPrice)) {
       errorToast('Product Total Price is Required');
     } else {
       loader.classList.remove('d-none');
-      createOperation(_productName, _productCode, _image, _unitPrice, _quantity, _totalPrice).then((res) => {
+      (async () => {
+        await axios.post(`http://localhost:8000/api/v1/create-product`, newProduct);
         loader.classList.add('d-none');
-        if (res === true) {
-          successToast('Product Data Successfully Save');
-          productName.value = '';
-          productCode.value = '';
-          image.value = '';
-          unitPrice.value = '';
-          quantity.value = '';
-          totalPrice.value = '';
-          navigate('/', { replace: true });
-        } else {
-          errorToast('Request Fail Try Again');
-        }
-      });
+        successToast('Product Data Successfully Updated');
+        navigate('/', { replace: true });
+      })();
     }
   };
 

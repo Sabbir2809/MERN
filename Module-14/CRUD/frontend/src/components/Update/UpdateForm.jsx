@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import FullScreenLoader from '../Common/FullScreenLoader';
 import { errorToast, isEmpty, successToast } from '../../helpers/validationHelper';
-import { readProductByIdOperation, updateOperation } from '../../api/CRUD';
+import axios from 'axios';
 
 const UpdateForm = () => {
-  const params = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   let productName,
     productCode,
@@ -16,49 +16,48 @@ const UpdateForm = () => {
     loader = useRef();
 
   useEffect(() => {
-    readProductByIdOperation(params.id).then((result) => {
-      productName.value = result[0]['productName'];
-      productCode.value = result[0]['productCode'];
-      image.value = result[0]['image'];
-      unitPrice.value = result[0]['unitPrice'];
-      quantity.value = result[0]['quantity'];
-      totalPrice.value = result[0]['totalPrice'];
-    });
+    (async () => {
+      const res = await axios.get(`http://localhost:8000/api/v1/read-by-product-id/${id}`);
+      const result = res.data.data[0];
+      productName.value = result['productName'];
+      productCode.value = result['productCode'];
+      image.value = result['image'];
+      unitPrice.value = result['unitPrice'];
+      quantity.value = result['quantity'];
+      totalPrice.value = result['totalPrice'];
+    })();
   }, []);
 
   const handleUpdateProduct = () => {
-    let _productName = productName.value;
-    let _productCode = productCode.value;
-    let _image = image.value;
-    let _unitPrice = unitPrice.value;
-    let _quantity = quantity.value;
-    let _totalPrice = totalPrice.value;
+    const updateBody = {
+      productName: productName.value,
+      productCode: productCode.value,
+      image: image.value,
+      unitPrice: unitPrice.value,
+      quantity: quantity.value,
+      totalPrice: totalPrice.value,
+    };
 
-    if (isEmpty(_productName)) {
+    if (isEmpty(updateBody.productName)) {
       errorToast('Product Name is Required');
-    } else if (isEmpty(_productCode)) {
+    } else if (isEmpty(updateBody.productCode)) {
       errorToast('Product Code is Required');
-    } else if (isEmpty(_image)) {
+    } else if (isEmpty(updateBody.image)) {
       errorToast('Product Image URL is Required');
-    } else if (isEmpty(_unitPrice)) {
+    } else if (isEmpty(updateBody.unitPrice)) {
       errorToast('Product Unit Price is Required');
-    } else if (isEmpty(_quantity)) {
+    } else if (isEmpty(updateBody.quantity)) {
       errorToast('Product Quantity is Required');
-    } else if (isEmpty(_totalPrice)) {
+    } else if (isEmpty(updateBody.totalPrice)) {
       errorToast('Product Total Price is Required');
     } else {
       loader.classList.remove('d-none');
-      updateOperation(params.id, _productName, _productCode, _image, _unitPrice, _quantity, _totalPrice).then(
-        (res) => {
-          loader.classList.add('d-none');
-          if (res === true) {
-            successToast('Product Data Successfully Updated');
-            navigate('/', { replace: true });
-          } else {
-            errorToast('Update Request, Fail Try Again');
-          }
-        }
-      );
+      (async () => {
+        await axios.patch(`http://localhost:8000/api/v1/update-product/${id}`, updateBody);
+        loader.classList.add('d-none');
+        successToast('Product Data Successfully Updated');
+        navigate('/', { replace: true });
+      })();
     }
   };
 
