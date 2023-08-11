@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import FullScreenLoader from '../Common/FullScreenLoader';
-import { deleteOperation, readOperation } from '../../api/CRUD';
-import { errorToast, successToast } from '../../helpers/validationHelper';
+import { successToast } from '../../helpers/validationHelper';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 const ReadTable = () => {
   const [dataList, setDataList] = useState([]);
@@ -10,35 +9,33 @@ const ReadTable = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    readOperation().then((data) => {
-      setDataList(data);
-    });
+    (async () => {
+      const res = await axios.get(`http://localhost:8000/api/v1/read-products`);
+      setDataList(res.data.data);
+    })();
   }, [id]);
 
   const handleUpdateProduct = (id) => {
-    navigate('/update-product/' + id, { replace: true });
+    navigate(`/update-product/${id}`, { replace: true });
   };
 
   const handleDeleteProduct = (id) => {
-    deleteOperation(id).then((result) => {
-      if (result === true) {
-        successToast('Product Deleted Successfully');
-        setId(id);
-      } else {
-        errorToast('Request Fail, Please Try Again...');
-      }
-    });
+    (async () => {
+      await axios.delete(`http://localhost:8000/api/v1/delete-product/${id}`);
+      successToast('Product Deleted Successfully');
+      setId(id);
+    })();
   };
 
   if (dataList.length > 0) {
     return (
       <div className='container mt-3 table-responsive '>
         <table className='table table-striped table-bordered table-hover'>
-          <thead className='table-dark text-center'>
+          <thead className='table-primary text-center'>
             <tr>
+              <th>Product Image</th>
               <th>Product Name</th>
               <th>Product Code</th>
-              <th>Image URL</th>
               <th>Unit Price</th>
               <th>Quantity</th>
               <th>Total Price</th>
@@ -48,11 +45,11 @@ const ReadTable = () => {
           <tbody className='text-center'>
             {dataList.map((item) => (
               <tr key={item.productCode}>
-                <td>{item.productName}</td>
-                <td>{item.productCode}</td>
                 <td>
                   <img className='list-img' src={item.image} alt='Product Image' />
                 </td>
+                <td>{item.productName}</td>
+                <td>{item.productCode}</td>
                 <td>{item.unitPrice}</td>
                 <td>{item.quantity}</td>
                 <td>{item.totalPrice}</td>
@@ -74,8 +71,8 @@ const ReadTable = () => {
     );
   } else {
     return (
-      <div className='text-center'>
-        <FullScreenLoader />
+      <div className='text-center mt-4 text-secondary'>
+        <h1>Please Create a new Product</h1>
       </div>
     );
   }
