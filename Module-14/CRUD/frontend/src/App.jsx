@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ReadPage from './pages/ReadPage';
 import CreatePage from './pages/CreatePage';
-import UpdatePage from './pages/UpdatePage';
 import NotFound from './components/Common/NotFound';
+import UpdatePage from './pages/UpdatePage';
 
 const App = () => {
   return (

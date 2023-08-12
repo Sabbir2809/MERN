@@ -17,7 +17,7 @@ router.post('/create-product', createProduct);
 router.get('/read-products', readProducts);
 router.get('/read-by-product-id/:id', readByProductId);
 // U = Update Operation
-router.patch('/update-product/:id', updateProducts);
+router.post('/update-product/:id', updateProducts);
 // D = Delete Operation
 router.delete('/delete-product/:id', deleteProduct);
 

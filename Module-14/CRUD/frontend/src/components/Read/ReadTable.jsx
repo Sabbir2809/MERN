@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { successToast } from '../../helpers/validationHelper';
-import { useNavigate } from 'react-router';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const ReadTable = () => {
   const [dataList, setDataList] = useState([]);
-  const [id, setId] = useState(null);
-  const navigate = useNavigate();
+  const [id, setId] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -15,16 +14,10 @@ const ReadTable = () => {
     })();
   }, [id]);
 
-  const handleUpdateProduct = (id) => {
-    navigate(`/update-product/${id}`, { replace: true });
-  };
-
-  const handleDeleteProduct = (id) => {
-    (async () => {
-      await axios.delete(`http://localhost:8000/api/v1/delete-product/${id}`);
-      successToast('Product Deleted Successfully');
-      setId(id);
-    })();
+  const handleDeleteProduct = async (id) => {
+    await axios.delete(`http://localhost:8000/api/v1/delete-product/${id}`);
+    successToast('Product Deleted Successfully');
+    setId(id);
   };
 
   if (dataList.length > 0) {
@@ -54,11 +47,9 @@ const ReadTable = () => {
                 <td>{item.quantity}</td>
                 <td>{item.totalPrice}</td>
                 <td>
-                  <button
-                    onClick={() => handleUpdateProduct(item._id)}
-                    className='btn btn-warning btn-sm mx-1'>
+                  <Link to={`/update-product/${item._id}`} className='btn btn-warning btn-sm mx-1'>
                     Update
-                  </button>
+                  </Link>
                   <button onClick={() => handleDeleteProduct(item._id)} className='btn btn-danger btn-sm'>
                     Delete
                   </button>
