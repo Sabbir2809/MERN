@@ -1,1 +1,3 @@
-`npm i react-router-dom axios bootstrap`
+# Blog App
+
+Package: `npm i react-router-dom axios bootstrap`
