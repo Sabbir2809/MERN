@@ -1,8 +1,8 @@
 // Dependencies
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
 // Schema
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -17,11 +17,17 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'password is required'],
     },
+    blogs: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'Blog',
+      },
+    ],
   },
   { timestamps: true, versionKey: false }
 );
 // Model
-const userModel = model('User', userSchema);
+const userModel = mongoose.model('User', userSchema);
 
 // Export
 module.exports = userModel;
