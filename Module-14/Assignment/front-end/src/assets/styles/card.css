@@ -42,6 +42,17 @@
   margin-top: auto;
 }
 
+.icons {
+  display: flex;
+  justify-content: space-between;
+}
+.edit__icon:hover {
+  color: cornflowerblue;
+}
+.delete__icon:hover {
+  color: tomato;
+}
+
 .user {
   display: flex;
   gap: 0.5rem;

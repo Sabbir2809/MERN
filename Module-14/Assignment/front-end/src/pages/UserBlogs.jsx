@@ -22,11 +22,11 @@ const UserBlogs = () => {
 
   return (
     <>
-      {blogs && blogs.length > 0 ? (
+      {blogs ? (
         <div className='containerCard'>
           {blogs.map((blog) => (
             <div className='card' key={blog._id}>
-              <BlogCard blog={blog} />
+              <BlogCard blog={blog} isUser={localStorage.getItem('userId') === blog?.user} />
             </div>
           ))}
         </div>

@@ -24,8 +24,8 @@ const Blogs = () => {
       {blogs && (
         <div className='containerCard'>
           {blogs.map((blog) => (
-            <div className='card' key={blog._id}>
-              <BlogCard blog={blog} />
+            <div className='card' key={blog?._id}>
+              <BlogCard blog={blog} isUser={localStorage.getItem('userId') === blog?.user?._id} />
             </div>
           ))}
         </div>

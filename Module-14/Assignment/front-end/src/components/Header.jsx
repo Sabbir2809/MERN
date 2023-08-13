@@ -8,7 +8,8 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const Header = () => {
   // redux global state
-  const isLogin = useSelector((state) => state.auth.isLogin);
+  let isLogin = useSelector((state) => state.auth.isLogin);
+  isLogin = isLogin || localStorage.getItem('userId');
   const dispatch = useDispatch();
 
   // react state
@@ -19,20 +20,21 @@ const Header = () => {
     dispatch(logout());
     // alert
     Swal.fire({
-      position: 'top-center',
+      position: 'center',
       icon: 'success',
       title: 'Logout Successfully',
       showConfirmButton: false,
       timer: 1000,
     });
-    navigate('/');
+    navigate('/login');
+    localStorage.clear();
   };
 
   return (
     <Navbar collapseOnSelect expand='lg' bg='primary' data-bs-theme='dark'>
       <Container>
         <Navbar.Brand>
-          <Link className='nav-link' to='/'>
+          <Link to='/' className='nav-link'>
             Blog App
           </Link>
         </Navbar.Brand>
@@ -41,13 +43,13 @@ const Header = () => {
           <Nav className='me-auto'>
             {isLogin && (
               <>
-                <NavLink className='nav-link' to='/blogs'>
+                <NavLink to='/blogs' className='nav-link'>
                   Blogs
                 </NavLink>
-                <NavLink className='nav-link' to='/my-blogs'>
+                <NavLink to='/my-blogs' className='nav-link'>
                   My Blogs
                 </NavLink>
-                <NavLink className='nav-link' to='/create-blog'>
+                <NavLink to='/create-blog' className='nav-link'>
                   Create blog
                 </NavLink>
               </>
@@ -56,16 +58,16 @@ const Header = () => {
           <Nav>
             {!isLogin && (
               <>
-                <NavLink className='nav-link' to='/login'>
+                <NavLink to='/login' className='nav-link'>
                   Login
                 </NavLink>
-                <NavLink className='nav-link' to='/register'>
+                <NavLink to='/register' className='nav-link'>
                   Register
                 </NavLink>
               </>
             )}
             {isLogin && (
-              <NavLink onClick={handleLogout} className='nav-link'>
+              <NavLink to={'/login'} onClick={handleLogout} className='nav-link'>
                 Logout
               </NavLink>
             )}

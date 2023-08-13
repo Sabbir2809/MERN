@@ -1,18 +1,32 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import './../assets/styles/form.css';
 
-const CreateBlog = () => {
-  // react state
-  const id = localStorage.getItem('userId');
+const BlogDetails = () => {
+  const [blog, setBlog] = useState({});
+  const id = useParams().id;
   const navigate = useNavigate();
-  const [inputs, setInputs] = useState({
-    title: '',
-    description: '',
-    image: '',
-  });
+  const [inputs, setInputs] = useState({});
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await axios.get(`http://localhost:8000/api/v1/blog/get-blog/${id}`);
+        if (data.success) {
+          setBlog(data?.data);
+          setInputs({
+            title: data?.data?.title,
+            description: data?.data?.description,
+            image: data?.data?.image,
+          });
+        }
+      } catch (error) {
+        console.error(error.message);
+      }
+    })();
+  }, [id]);
 
   const handleChange = (event) => {
     setInputs((prevState) => ({
@@ -21,7 +35,7 @@ const CreateBlog = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleUpdate = (event) => {
     event.preventDefault();
 
     (async () => {
@@ -32,12 +46,12 @@ const CreateBlog = () => {
         user: id,
       };
       try {
-        const { data } = await axios.post('http://localhost:8000/api/v1/blog/create-blog', formBody);
+        const { data } = await axios.put(`http://localhost:8000/api/v1/blog/update-blog/${id}`, formBody);
         if (data?.success) {
           Swal.fire({
             position: 'center',
             icon: 'success',
-            title: 'Blog Created Successfully',
+            title: 'Blog Updated Successfully',
             showConfirmButton: false,
             timer: 1500,
           });
@@ -51,9 +65,9 @@ const CreateBlog = () => {
 
   return (
     <div className='Auth-form-container'>
-      <form className='Auth-form' onSubmit={handleSubmit}>
+      <form className='Auth-form' onSubmit={handleUpdate}>
         <div className='Auth-form-content'>
-          <h3 className='Auth-form-title'>Create a New Blog</h3>
+          <h3 className='Auth-form-title'>Update Blog</h3>
           <div className='form-group mt-3'>
             <label htmlFor='title'>Title</label>
             <input
@@ -94,8 +108,8 @@ const CreateBlog = () => {
             />
           </div>
           <div className='d-grid gap-2 mt-3'>
-            <button type='submit' className='btn btn-primary'>
-              Blog Post
+            <button type='submit' className='btn btn-warning'>
+              Update Post
             </button>
           </div>
         </div>
@@ -104,4 +118,4 @@ const CreateBlog = () => {
   );
 };
 
-export default CreateBlog;
+export default BlogDetails;

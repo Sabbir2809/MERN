@@ -38,7 +38,7 @@ const Login = () => {
           dispatch(login());
           // alert
           Swal.fire({
-            position: 'top-center',
+            position: 'center',
             icon: 'success',
             title: 'User Login Successfully',
             showConfirmButton: false,

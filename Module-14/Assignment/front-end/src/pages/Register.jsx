@@ -33,7 +33,7 @@ const Register = () => {
         const { data } = await axios.post('http://localhost:8000/api/v1/user/register', formBody);
         if (data?.success) {
           Swal.fire({
-            position: 'top-center',
+            position: 'center',
             icon: 'success',
             title: 'Registration Successfully',
             showConfirmButton: false,
