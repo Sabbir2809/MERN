@@ -1,28 +1,28 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import Row from 'react-bootstrap/Row';
+import React, { useEffect, useState } from 'react';
 import BlogCard from '../components/BlogCard';
 
-const Blogs = () => {
+const UserBlogs = () => {
   // react state
   const [blogs, setBlogs] = useState([]);
 
-  // get blogs
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get('http://localhost:8000/api/v1/blog/all-blog');
-        if (data?.success) {
-          setBlogs(data?.data);
+        const id = localStorage.getItem('userId');
+        const { data } = await axios.get(`http://localhost:8000/api/v1/blog/user-blog/${id}`);
+        if (data.success) {
+          setBlogs(data?.data?.blogs);
         }
       } catch (error) {
         console.error(error.message);
       }
     })();
   }, []);
+
   return (
     <>
-      {blogs && (
+      {blogs && blogs.length > 0 ? (
         <div className='containerCard'>
           {blogs.map((blog) => (
             <div className='card' key={blog._id}>
@@ -30,9 +30,11 @@ const Blogs = () => {
             </div>
           ))}
         </div>
+      ) : (
+        <h2 className='text-center text-success mt-4'>You have created a New Blog</h2>
       )}
     </>
   );
 };
 
-export default Blogs;
+export default UserBlogs;

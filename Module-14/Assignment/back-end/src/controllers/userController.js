@@ -67,7 +67,11 @@ exports.login = async (req, res) => {
     // Successful Response
     res.status(200).json({
       success: true,
-      data: user,
+      data: {
+        id: user._id,
+        email: user.email,
+        username: user.username,
+      },
     });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
