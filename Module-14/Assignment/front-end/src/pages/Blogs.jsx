@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Row from 'react-bootstrap/Row';
 import BlogCard from '../components/BlogCard';
 
 const Blogs = () => {

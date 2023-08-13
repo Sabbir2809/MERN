@@ -31,7 +31,7 @@ const Register = () => {
       };
       try {
         const { data } = await axios.post('http://localhost:8000/api/v1/user/register', formBody);
-        if (data.success) {
+        if (data?.success) {
           Swal.fire({
             position: 'top-center',
             icon: 'success',
@@ -59,8 +59,9 @@ const Register = () => {
               name='username'
               value={inputs.username}
               onChange={handleChange}
-              className='form-control mt-1'
               id='username'
+              required
+              className='form-control mt-1'
               placeholder='Enter your username'
             />
           </div>
@@ -71,8 +72,9 @@ const Register = () => {
               name='email'
               value={inputs.email}
               onChange={handleChange}
-              className='form-control mt-1'
               id='email'
+              required
+              className='form-control mt-1'
               placeholder='Enter email'
             />
           </div>
@@ -80,10 +82,11 @@ const Register = () => {
             <label htmlFor='password'>Password</label>
             <input
               type='password'
-              className='form-control mt-1'
-              id='password'
               name='password'
               value={inputs.password}
+              id='password'
+              required
+              className='form-control mt-1'
               onChange={handleChange}
               placeholder='Enter your  password'
             />

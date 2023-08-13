@@ -1,19 +1,17 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { login } from '../redux/features/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './../assets/styles/form.css';
 
-const Login = () => {
-  // redux global State
-  const dispatch = useDispatch();
+const CreateBlog = () => {
   // react state
+  const id = localStorage.getItem('userId');
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
-    email: '',
-    password: '',
+    title: '',
+    description: '',
+    image: '',
   });
 
   const handleChange = (event) => {
@@ -22,30 +20,28 @@ const Login = () => {
       [event.target.name]: event.target.value,
     }));
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
     (async () => {
+      const formBody = {
+        title: inputs.title,
+        description: inputs.description,
+        image: inputs.image,
+        user: id,
+      };
       try {
-        const formBody = {
-          email: inputs.email,
-          password: inputs.password,
-        };
-        const { data } = await axios.post('http://localhost:8000/api/v1/user/login', formBody);
+        const { data } = await axios.post('http://localhost:8000/api/v1/blog/create-blog', formBody);
         if (data?.success) {
-          // get id localStorage
-          localStorage.setItem('userId', data?.data?.id);
-          // dispatch action
-          dispatch(login());
-          // alert
           Swal.fire({
             position: 'top-center',
             icon: 'success',
-            title: 'User Login Successfully',
+            title: 'Blog Created Successfully',
             showConfirmButton: false,
-            timer: 1000,
+            timer: 1500,
           });
-          // navigate
-          navigate('/blogs');
+          navigate('/my-blogs');
         }
       } catch (error) {
         console.error(error.message);
@@ -57,40 +53,50 @@ const Login = () => {
     <div className='Auth-form-container'>
       <form className='Auth-form' onSubmit={handleSubmit}>
         <div className='Auth-form-content'>
-          <h3 className='Auth-form-title'>Login</h3>
+          <h3 className='Auth-form-title'>Create a New Blog</h3>
           <div className='form-group mt-3'>
-            <label htmlFor='email'>Email</label>
+            <label htmlFor='title'>Title</label>
             <input
-              type='email'
-              name='email'
-              value={inputs.email}
+              type='text'
+              name='title'
+              value={inputs.title}
               onChange={handleChange}
-              id='email'
               required
+              id='title'
               className='form-control mt-1'
-              placeholder='Enter Your email'
+              placeholder='Blog title'
             />
           </div>
           <div className='form-group mt-3'>
-            <label htmlFor='password'>Password</label>
+            <label htmlFor='description'>Description</label>
             <input
-              type='password'
-              name='password'
-              value={inputs.password}
+              type='text'
+              name='description'
+              value={inputs.description}
               onChange={handleChange}
-              id='password'
+              id='description'
               required
               className='form-control mt-1'
-              placeholder='Enter  Your Password'
+              placeholder='Blog Description'
+            />
+          </div>
+          <div className='form-group mt-3'>
+            <label htmlFor='image'>Image</label>
+            <input
+              type='text'
+              className='form-control mt-1'
+              name='image'
+              value={inputs.image}
+              onChange={handleChange}
+              id='image'
+              required
+              placeholder='Image URL'
             />
           </div>
           <div className='d-grid gap-2 mt-3'>
             <button type='submit' className='btn btn-primary'>
-              Login
+              Blog Post
             </button>
-            <p className='text-center mt-2'>
-              Not registered yet? <Link to='/register'> Please Register</Link>
-            </p>
           </div>
         </div>
       </form>
@@ -98,4 +104,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default CreateBlog;

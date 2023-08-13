@@ -17,7 +17,14 @@ const Header = () => {
   // logout
   const handleLogout = () => {
     dispatch(logout());
-    Swal.fire('Logout Successfully');
+    // alert
+    Swal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: 'Logout Successfully',
+      showConfirmButton: false,
+      timer: 1000,
+    });
     navigate('/');
   };
 
@@ -40,6 +47,9 @@ const Header = () => {
                 <NavLink className='nav-link' to='/my-blogs'>
                   My Blogs
                 </NavLink>
+                <NavLink className='nav-link' to='/create-blog'>
+                  Create blog
+                </NavLink>
               </>
             )}
           </Nav>
@@ -55,7 +65,7 @@ const Header = () => {
               </>
             )}
             {isLogin && (
-              <NavLink onClick={handleLogout} className='nav-link' to='/logout'>
+              <NavLink onClick={handleLogout} className='nav-link'>
                 Logout
               </NavLink>
             )}
@@ -67,26 +77,3 @@ const Header = () => {
 };
 
 export default Header;
-
-{
-  /* <Navbar bg='primary' data-bs-theme='dark'>
-      <Container>
-        <Navbar.Brand>
-          <Link className='nav-link' to='/'>
-            MERN CURD PROJECT
-          </Link>
-        </Navbar.Brand>
-        <Nav className='me-auto '>
-          <NavLink className='nav-link' to='/login'>
-            Login
-          </NavLink>
-          <NavLink className='nav-link' to='/register'>
-            Register
-          </NavLink>
-          <NavLink className='nav-link' to='/logout'>
-            Logout
-          </NavLink>
-        </Nav>
-      </Container>
-    </Navbar> */
-}
