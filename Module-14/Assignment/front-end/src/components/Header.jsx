@@ -10,6 +10,7 @@ const Header = () => {
   // redux global state
   let isLogin = useSelector((state) => state.auth.isLogin);
   isLogin = isLogin || localStorage.getItem('userId');
+
   const dispatch = useDispatch();
 
   // react state
@@ -46,11 +47,8 @@ const Header = () => {
                 <NavLink to='/blogs' className='nav-link'>
                   Blogs
                 </NavLink>
-                <NavLink to='/my-blogs' className='nav-link'>
-                  My Blogs
-                </NavLink>
                 <NavLink to='/create-blog' className='nav-link'>
-                  Create blog
+                  Create Blog
                 </NavLink>
               </>
             )}
@@ -67,9 +65,14 @@ const Header = () => {
               </>
             )}
             {isLogin && (
-              <NavLink to={'/login'} onClick={handleLogout} className='nav-link'>
-                Logout
-              </NavLink>
+              <Nav>
+                <NavLink to='/my-blogs' className='nav-link'>
+                  My Blog
+                </NavLink>
+                <NavLink to={'/login'} onClick={handleLogout} className='nav-link'>
+                  Logout
+                </NavLink>
+              </Nav>
             )}
           </Nav>
         </Navbar.Collapse>

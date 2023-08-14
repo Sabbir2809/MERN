@@ -35,9 +35,7 @@ const Blogs = () => {
       {blogs.length > 0 ? (
         <div className='containerCard'>
           {blogs.map((blog) => (
-            <div className='card' key={blog?._id}>
-              <BlogCard blog={blog} isUser={localStorage.getItem('userId') === blog?.user?._id} />
-            </div>
+            <BlogCard blog={blog} isUser={localStorage.getItem('userId') === blog?.user?._id} />
           ))}
         </div>
       ) : (

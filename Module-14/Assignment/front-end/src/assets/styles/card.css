@@ -42,6 +42,10 @@
   margin-top: auto;
 }
 
+.blog__title:hover {
+  color: dodgerblue;
+}
+
 .icons {
   display: flex;
   justify-content: space-between;

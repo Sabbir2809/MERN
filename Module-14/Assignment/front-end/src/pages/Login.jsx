@@ -3,9 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/features/authSlice';
 import axios from 'axios';
-import Swal from 'sweetalert2';
-import './../assets/styles/form.css';
 import { toast } from 'react-hot-toast';
+import './../assets/styles/form.css';
 
 const Login = () => {
   // redux global State

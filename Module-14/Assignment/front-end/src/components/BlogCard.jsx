@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { BiSolidEdit } from 'react-icons/bi';
 import { AiOutlineDelete } from 'react-icons/ai';
-import './../assets/styles/card.css';
 import Swal from 'sweetalert2';
+import './../assets/styles/card.css';
 
 const BlogCard = ({ blog, isUser }) => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const BlogCard = ({ blog, isUser }) => {
   const userEmail = localStorage.getItem('userEmail');
 
   const handleEdit = () => {
-    navigate(`/blog-details/${_id}`);
+    navigate(`/blog-update/${_id}`);
   };
 
   const handleDelete = async () => {
@@ -32,13 +32,17 @@ const BlogCard = ({ blog, isUser }) => {
     }
   };
 
+  const handleBlog = () => {
+    navigate(`/blog-details/${_id}`);
+  };
+
   let picture =
     image.length > 10
       ? image
       : `https://i0.wp.com/myblog.com.ng/wp-content/uploads/2020/01/IMG_2117-1.jpg?fit=860%2C435&ssl=1`;
 
   return (
-    <>
+    <div className='card' key={_id}>
       <div className='card__header'>
         <img src={picture} alt='card__image' className='card__image' width='600' />
       </div>
@@ -53,8 +57,10 @@ const BlogCard = ({ blog, isUser }) => {
             </div>
           </div>
         )}
-        <h4 className='text-primary'>{title}</h4>
-        <p>{description.substring(0, 160)}</p>
+        <div onClick={handleBlog}>
+          <h4 className='blog__title'>{title}</h4>
+          <p>{description.substring(0, 160)}</p>
+        </div>
       </div>
       <div className='card__footer'>
         <div className='user'>
@@ -64,7 +70,7 @@ const BlogCard = ({ blog, isUser }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

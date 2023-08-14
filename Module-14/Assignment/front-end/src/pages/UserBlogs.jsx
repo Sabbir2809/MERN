@@ -22,12 +22,13 @@ const UserBlogs = () => {
 
   return (
     <>
+      <div class='alert alert-primary text-center' role='alert'>
+        <h5>Profile: {localStorage.getItem('userEmail')}</h5>
+      </div>
       {blogs && blogs.length > 0 ? (
         <div className='containerCard'>
           {blogs.map((blog) => (
-            <div className='card' key={blog._id}>
-              <BlogCard blog={blog} isUser={true} />
-            </div>
+            <BlogCard blog={blog} isUser={true} />
           ))}
         </div>
       ) : (

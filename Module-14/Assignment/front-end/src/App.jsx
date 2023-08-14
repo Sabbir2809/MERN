@@ -7,6 +7,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import UserBlogs from './pages/UserBlogs';
 import CreateBlog from './pages/CreateBlog';
+import BlogUpdate from './pages/BlogUpdate';
+import NotFound from './pages/NotFound';
 import BlogDetails from './pages/BlogDetails';
 
 const App = () => {
@@ -18,10 +20,12 @@ const App = () => {
         <Route path='/' element={<Blogs />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/my-blogs' element={<UserBlogs />} />
+        <Route path='/blog-update/:id' element={<BlogUpdate />} />
         <Route path='/blog-details/:id' element={<BlogDetails />} />
         <Route path='/create-blog' element={<CreateBlog />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
