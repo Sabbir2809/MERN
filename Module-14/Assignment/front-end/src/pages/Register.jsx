@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Swal from 'sweetalert2';
 import './../assets/styles/form.css';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
   // react state
@@ -23,6 +23,16 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (inputs.username.length === 0) {
+      toast.error('Username is Required');
+    }
+    if (inputs.email.length === 0) {
+      toast.error('Email is Required');
+    }
+    if (inputs.password.length === 0) {
+      toast.error('Password is Required');
+    }
+
     (async () => {
       const formBody = {
         username: inputs.username,
@@ -32,16 +42,11 @@ const Register = () => {
       try {
         const { data } = await axios.post('http://localhost:8000/api/v1/user/register', formBody);
         if (data?.success) {
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Registration Successfully',
-            showConfirmButton: false,
-            timer: 1000,
-          });
+          toast.success('User Registration Successfully');
           navigate('/login');
         }
       } catch (error) {
+        toast.error(`User Already Exists`);
         console.error(error.message);
       }
     })();
@@ -62,7 +67,7 @@ const Register = () => {
               id='username'
               required
               className='form-control mt-1'
-              placeholder='Enter your username'
+              placeholder='enter your username'
             />
           </div>
           <div className='form-group mt-3'>
@@ -75,7 +80,7 @@ const Register = () => {
               id='email'
               required
               className='form-control mt-1'
-              placeholder='Enter email'
+              placeholder='enter your email'
             />
           </div>
           <div className='form-group mt-3'>
@@ -88,7 +93,7 @@ const Register = () => {
               required
               className='form-control mt-1'
               onChange={handleChange}
-              placeholder='Enter your  password'
+              placeholder='enter your  password'
             />
           </div>
           <div className='d-grid gap-2 mt-3'>
@@ -96,7 +101,7 @@ const Register = () => {
               Register
             </button>
             <p className='text-center mt-2'>
-              Already Register ?<Link to='/login'> Please Login</Link>
+              Already Register?<Link to='/login'> Please Login</Link>
             </p>
           </div>
         </div>

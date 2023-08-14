@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login } from '../redux/features/auth/authSlice';
+import { login } from '../redux/features/authSlice';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './../assets/styles/form.css';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
   // redux global State
@@ -23,6 +24,13 @@ const Login = () => {
     }));
   };
   const handleSubmit = (event) => {
+    if (inputs.email.length === 0) {
+      toast.error('Please Check Your Email Address');
+    }
+    if (inputs.password.length === 0) {
+      toast.error('Please Check Your Password');
+    }
+
     event.preventDefault();
     (async () => {
       try {
@@ -31,23 +39,17 @@ const Login = () => {
           password: inputs.password,
         };
         const { data } = await axios.post('http://localhost:8000/api/v1/user/login', formBody);
-        if (data?.success) {
+        if (data.success) {
           // get id localStorage
           localStorage.setItem('userId', data?.data?.id);
-          // dispatch action
+          // dispatch action and tost alert
           dispatch(login());
-          // alert
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'User Login Successfully',
-            showConfirmButton: false,
-            timer: 1000,
-          });
+          toast.success('User Login Successfully');
           // navigate
           navigate('/blogs');
         }
       } catch (error) {
+        toast.error('Invalid Username or Password');
         console.error(error.message);
       }
     })();
@@ -66,9 +68,8 @@ const Login = () => {
               value={inputs.email}
               onChange={handleChange}
               id='email'
-              required
               className='form-control mt-1'
-              placeholder='Enter Your email'
+              placeholder='your email'
             />
           </div>
           <div className='form-group mt-3'>
@@ -79,9 +80,8 @@ const Login = () => {
               value={inputs.password}
               onChange={handleChange}
               id='password'
-              required
               className='form-control mt-1'
-              placeholder='Enter  Your Password'
+              placeholder='your Password'
             />
           </div>
           <div className='d-grid gap-2 mt-3'>
@@ -89,7 +89,7 @@ const Login = () => {
               Login
             </button>
             <p className='text-center mt-2'>
-              Not registered yet? <Link to='/register'> Please Register</Link>
+              Don't have an account? <Link to='/register'>Please Register</Link>
             </p>
           </div>
         </div>
