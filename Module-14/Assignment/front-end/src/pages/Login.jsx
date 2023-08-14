@@ -42,6 +42,7 @@ const Login = () => {
         if (data.success) {
           // get id localStorage
           localStorage.setItem('userId', data?.data?.id);
+          localStorage.setItem('userEmail', data?.data?.email);
           // dispatch action and tost alert
           dispatch(login());
           toast.success('User Login Successfully');

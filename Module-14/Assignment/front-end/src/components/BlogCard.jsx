@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import axios from 'axios';
 import { BiSolidEdit } from 'react-icons/bi';
 import { AiOutlineDelete } from 'react-icons/ai';
@@ -9,6 +8,7 @@ import Swal from 'sweetalert2';
 const BlogCard = ({ blog, isUser }) => {
   const navigate = useNavigate();
   const { _id, image, title, description, createdAt } = blog;
+  const userEmail = localStorage.getItem('userEmail');
 
   const handleEdit = () => {
     navigate(`/blog-details/${_id}`);
@@ -32,10 +32,15 @@ const BlogCard = ({ blog, isUser }) => {
     }
   };
 
+  let picture =
+    image.length > 10
+      ? image
+      : `https://i0.wp.com/myblog.com.ng/wp-content/uploads/2020/01/IMG_2117-1.jpg?fit=860%2C435&ssl=1`;
+
   return (
     <>
       <div className='card__header'>
-        <img src={image} alt='card__image' className='card__image' width='600' />
+        <img src={picture} alt='card__image' className='card__image' width='600' />
       </div>
       <div className='card__body'>
         {isUser && (
@@ -49,12 +54,12 @@ const BlogCard = ({ blog, isUser }) => {
           </div>
         )}
         <h4 className='text-primary'>{title}</h4>
-        <p>Description: {description}</p>
+        <p>{description.substring(0, 160)}</p>
       </div>
       <div className='card__footer'>
         <div className='user'>
           <div className='user__info'>
-            <h6 className='text-secondary'>{blog?.user?.username}</h6>
+            <h6 className='text-secondary'>{userEmail?.split('@gmail.com') || blog?.user?.username}</h6>
             <small>{createdAt}</small>
           </div>
         </div>

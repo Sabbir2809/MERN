@@ -24,7 +24,7 @@ const Header = () => {
       icon: 'success',
       title: 'Logout Successfully',
       showConfirmButton: false,
-      timer: 1000,
+      timer: 1500,
     });
     navigate('/login');
     localStorage.clear();

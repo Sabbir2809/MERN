@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import './../assets/styles/form.css';
+import { toast } from 'react-hot-toast';
 
 const BlogDetails = () => {
-  const [blog, setBlog] = useState({});
-  const id = useParams().id;
+  const { id } = useParams();
   const navigate = useNavigate();
+  const [blog, setBlog] = useState({});
   const [inputs, setInputs] = useState({});
 
   useEffect(() => {
@@ -48,13 +48,7 @@ const BlogDetails = () => {
       try {
         const { data } = await axios.put(`http://localhost:8000/api/v1/blog/update-blog/${id}`, formBody);
         if (data?.success) {
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Blog Updated Successfully',
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          toast.success('Blog Updated Successfully');
           navigate('/my-blogs');
         }
       } catch (error) {

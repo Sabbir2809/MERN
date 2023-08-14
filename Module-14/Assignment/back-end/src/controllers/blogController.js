@@ -5,7 +5,7 @@ const userModel = require('../models/userModel');
 // Get All Blogs
 exports.getAllBlogsController = async (req, res) => {
   try {
-    const blogs = await blogModel.find({}).populate('user');
+    const blogs = await blogModel.find({});
     // Validation
     if (!blogs) {
       return res.status(400).send({ success: false, message: 'No Blogs Found' });
@@ -25,14 +25,11 @@ exports.getAllBlogsController = async (req, res) => {
 // Get a Single Blog
 exports.getBlogByIdController = async (req, res) => {
   try {
-    const { id } = req.params;
-    const blog = await blogModel.findById(id);
-
+    const blog = await blogModel.findById(req.params.id);
     // Validation
     if (!blog) {
       return res.status(400).send({ success: false, message: 'Blog Not Found with this Id' });
     }
-
     // Successfully Response
     res.status(200).send({
       success: true,
@@ -58,7 +55,7 @@ exports.createBlogController = async (req, res) => {
     }
 
     // create blog
-    const newBlog = await blogModel.create({ title, description, image, user });
+    const newBlog = new blogModel({ title, description, image, user });
 
     // session
     const session = await mongoose.startSession();
@@ -67,6 +64,7 @@ exports.createBlogController = async (req, res) => {
     existingUser.blogs.push(newBlog);
     await existingUser.save({ session });
     await session.commitTransaction();
+    await newBlog.save();
 
     // Successfully Response
     res.status(200).send({
@@ -81,11 +79,8 @@ exports.createBlogController = async (req, res) => {
 // Update Blog
 exports.updateBlogController = async (req, res) => {
   try {
-    const { id } = req.params;
-    const { title, description, image } = req.body;
-
     // Update Blog Information
-    const updateBlog = await blogModel.findByIdAndUpdate(id, { ...req.body }, { new: true });
+    const updateBlog = await blogModel.findByIdAndUpdate(req.params.id, { ...req.body }, { new: true });
 
     // Successfully Response
     res.status(200).send({
@@ -100,8 +95,7 @@ exports.updateBlogController = async (req, res) => {
 // Delete Blog
 exports.deleteBlogController = async (req, res) => {
   try {
-    const { id } = req.params;
-    const blog = await blogModel.findByIdAndDelete(id).populate('user');
+    const blog = await blogModel.findByIdAndDelete(req.params.id).populate('user');
     await blog.user.blogs.pull(blog);
     await blog.user.save();
 
@@ -118,8 +112,7 @@ exports.deleteBlogController = async (req, res) => {
 // Get a User Blog
 exports.userBlogController = async (req, res) => {
   try {
-    const { id } = req.params;
-    const userBlog = await userModel.findById(id).populate('blogs');
+    const userBlog = await userModel.findById(req.params.id).populate('blogs');
 
     // Validation
     if (!userBlog) {

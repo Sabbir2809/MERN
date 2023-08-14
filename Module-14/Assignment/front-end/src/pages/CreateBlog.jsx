@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Swal from 'sweetalert2';
 import './../assets/styles/form.css';
+import { toast } from 'react-hot-toast';
 
 const CreateBlog = () => {
   // react state
@@ -24,6 +24,16 @@ const CreateBlog = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (inputs.title.length === 0) {
+      return toast.error('Blog Title is Required');
+    }
+    if (inputs.description.length === 0) {
+      return toast.error('Blog Description is Required');
+    }
+    if (inputs.image.length === 0) {
+      return toast.error('Image URL is Required');
+    }
+
     (async () => {
       const formBody = {
         title: inputs.title,
@@ -34,16 +44,11 @@ const CreateBlog = () => {
       try {
         const { data } = await axios.post('http://localhost:8000/api/v1/blog/create-blog', formBody);
         if (data?.success) {
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Blog Created Successfully',
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          toast.success('Blog Created Successfully');
           navigate('/my-blogs');
         }
       } catch (error) {
+        toast.error('User Not Login, Please Login');
         console.error(error.message);
       }
     })();
@@ -61,7 +66,6 @@ const CreateBlog = () => {
               name='title'
               value={inputs.title}
               onChange={handleChange}
-              required
               id='title'
               className='form-control mt-1'
               placeholder='Blog title'
@@ -75,7 +79,6 @@ const CreateBlog = () => {
               value={inputs.description}
               onChange={handleChange}
               id='description'
-              required
               className='form-control mt-1'
               placeholder='Blog Description'
             />
@@ -89,7 +92,6 @@ const CreateBlog = () => {
               value={inputs.image}
               onChange={handleChange}
               id='image'
-              required
               placeholder='Image URL'
             />
           </div>
