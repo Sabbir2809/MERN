@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const blogModel = require('../models/blogModel');
 const userModel = require('../models/userModel');
 
-// Get All Blogs
+// Fetching all blog posts
 exports.getAllBlogsController = async (req, res) => {
   try {
     const blogs = await blogModel.find({});
@@ -22,7 +22,7 @@ exports.getAllBlogsController = async (req, res) => {
   }
 };
 
-// Get a Single Blog
+// Fetching a single blog post by ID
 exports.getBlogByIdController = async (req, res) => {
   try {
     const blog = await blogModel.findById(req.params.id);
@@ -40,7 +40,7 @@ exports.getBlogByIdController = async (req, res) => {
   }
 };
 
-// Create Blogs
+// Creating a new blog post
 exports.createBlogController = async (req, res) => {
   try {
     const { title, description, image, user } = req.body;
@@ -76,7 +76,7 @@ exports.createBlogController = async (req, res) => {
   }
 };
 
-// Update Blog
+// Updating an existing blog post
 exports.updateBlogController = async (req, res) => {
   try {
     // Update Blog Information
@@ -92,7 +92,7 @@ exports.updateBlogController = async (req, res) => {
   }
 };
 
-// Delete Blog
+// Deleting a blog post
 exports.deleteBlogController = async (req, res) => {
   try {
     const blog = await blogModel.findByIdAndDelete(req.params.id).populate('user');

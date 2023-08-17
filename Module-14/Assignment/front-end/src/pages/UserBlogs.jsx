@@ -22,7 +22,7 @@ const UserBlogs = () => {
 
   return (
     <>
-      <div class='alert alert-primary text-center' role='alert'>
+      <div className='alert alert-primary text-center' role='alert'>
         <h5>Profile: {localStorage.getItem('userEmail')}</h5>
       </div>
       {blogs && blogs.length > 0 ? (

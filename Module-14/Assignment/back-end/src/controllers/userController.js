@@ -1,20 +1,6 @@
 const bcrypt = require('bcrypt');
 const userModel = require('../models/userModel');
 
-// Get All Users
-exports.getAllUsers = async (req, res) => {
-  try {
-    const users = await userModel.find({}, { password: 0 });
-    res.status(200).json({
-      success: true,
-      userCount: users.length,
-      data: users,
-    });
-  } catch (error) {
-    res.status(500).send({ success: false, error: error.message });
-  }
-};
-
 // Register
 exports.register = async (req, res) => {
   try {

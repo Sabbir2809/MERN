@@ -1,7 +1,7 @@
 // Dependencies
 const express = require('express');
 const router = express.Router();
-const { getAllUsers, register, login } = require('../controllers/userController');
+const { register, login } = require('../controllers/userController');
 const {
   getAllBlogsController,
   getBlogByIdController,
@@ -14,7 +14,6 @@ const {
 // API Routing End Point:
 
 // @User Routing
-router.get('/user/all-users', getAllUsers);
 router.post('/user/register', register);
 router.post('/user/login', login);
 

@@ -8,7 +8,6 @@ import './../assets/styles/card.css';
 const BlogCard = ({ blog, isUser }) => {
   const navigate = useNavigate();
   const { _id, image, title, description, createdAt } = blog;
-  const userEmail = localStorage.getItem('userEmail');
 
   const handleEdit = () => {
     navigate(`/blog-update/${_id}`);
@@ -65,7 +64,9 @@ const BlogCard = ({ blog, isUser }) => {
       <div className='card__footer'>
         <div className='user'>
           <div className='user__info'>
-            <h6 className='text-secondary'>{userEmail?.split('@gmail.com') || blog?.user?.username}</h6>
+            <h6 className='text-secondary text-uppercase'>
+              {blog?.user || blog?.username || blog?.user?.username}
+            </h6>
             <small>{createdAt}</small>
           </div>
         </div>
