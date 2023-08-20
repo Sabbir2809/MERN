@@ -175,6 +175,8 @@
 
 - React Hooks have greatly simplified the development process in React and have made it easier to write reusable and composable code.
 
+---
+
 ### Module-13: React-Redux
 
 ### 1.1 What is Redux & why Redux?
@@ -197,3 +199,7 @@
 - Store will update the view
 
 <img width="745" alt="Screenshot 2022-05-17 at 19 37 57" src="https://user-images.githubusercontent.com/28184926/168863620-b2ffa708-8c0b-4b90-b81d-45212248b055.png">
+
+### Module-14: MERN Project Structure & CRUD Project
+
+### Module-15: Recap Module: Backend & Front-End Development
