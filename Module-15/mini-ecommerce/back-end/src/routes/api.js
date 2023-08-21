@@ -10,7 +10,7 @@ const router = express.Router();
 
 // @User Authentication API: register, login
 router.post("/auth/user-register", register);
-router.get("/auth/user-login", login);
+router.post("/auth/user-login", login);
 
 // @Product API: createProduct, getAllProducts
 router.post("/create-product", authVerify, createProduct);
