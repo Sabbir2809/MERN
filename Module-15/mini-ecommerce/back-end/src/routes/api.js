@@ -14,7 +14,7 @@ router.post("/auth/user-login", login);
 
 // @Product API: createProduct, getAllProducts
 router.post("/create-product", authVerify, createProduct);
-router.get("/products", authVerify, getAllProducts);
+router.get("/products", getAllProducts);
 
 // @Cart API: createCar, getAllCartList, deleteCart
 router.post("/create-cart", authVerify, createCart);

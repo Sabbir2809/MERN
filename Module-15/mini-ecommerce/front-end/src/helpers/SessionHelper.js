@@ -11,6 +11,9 @@ class SessionHelper {
   getEmail() {
     return localStorage.getItem("email");
   }
+  setGuestCart(productId) {
+    localStorage.setItem("guestCartItem", productId);
+  }
   getGuestCart() {
     return localStorage.getItem("guestCartItem");
   }
@@ -29,6 +32,7 @@ export const {
   getToken,
   setEmail,
   getEmail,
+  setGuestCart,
   getGuestCart,
   convertPriceStringToNumber,
   removeSession,

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import { setEmail, setToken } from "../helpers/SessionHelper";
+import { getEmail, getGuestCart, getToken, setEmail, setToken } from "../helpers/SessionHelper";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -38,7 +38,18 @@ const LoginPage = () => {
           setToken(data.token);
           setEmail(data.data.email);
           toast.success("Login Successful");
-          navigate("/");
+
+          const postBody = { userEmail: getEmail(), productId: getGuestCart() };
+          const token = { headers: { token: getToken() } };
+          if (getToken()) {
+            const res = await axios.post(`http://localhost:8000/api/create-cart`, postBody, token);
+            if (res.status) {
+              localStorage.removeItem("guestCartItem");
+              navigate(`/cart-list`);
+            }
+          } else {
+            navigate(`/cart-list`);
+          }
         }
       } catch (error) {
         if (error.response.data.success === false) {

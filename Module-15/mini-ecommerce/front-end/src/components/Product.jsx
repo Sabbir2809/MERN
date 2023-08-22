@@ -1,5 +1,31 @@
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { getEmail, getToken, setGuestCart } from "../helpers/SessionHelper";
+
 const Product = ({ product }) => {
-  const { title, description, thumbnail, price } = product;
+  const navigate = useNavigate();
+  const { _id, title, description, thumbnail, price } = product;
+
+  const handleAddToCart = async () => {
+    try {
+      const postBody = { userEmail: getEmail(), productId: _id };
+      const token = { headers: { token: getToken() } };
+      if (getToken()) {
+        const res = await axios.post(`http://localhost:8000/api/create-cart`, postBody, token);
+        if (res.status) {
+          toast.success("Add To Cart Successful!");
+        }
+      } else {
+        setGuestCart(_id);
+        navigate("/login");
+      }
+    } catch (error) {
+      if (error.response.data.success === false) {
+        return toast.error(error.response.data.message);
+      }
+    }
+  };
 
   return (
     <div className="card w-100  drop-shadow-lg bg-base-100">
@@ -11,7 +37,9 @@ const Product = ({ product }) => {
         <p className=" text-gray-400">{description}</p>
         <h6 className="font-bold text-right">Price: ${price}</h6>
         <div className="card-actions justify-end">
-          <button className="btn btn-sm btn-outline btn-primary">Add Cart</button>
+          <button onClick={handleAddToCart} className="btn btn-sm btn-outline btn-primary">
+            Add Cart
+          </button>
         </div>
       </div>
     </div>

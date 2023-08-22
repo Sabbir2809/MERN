@@ -23,11 +23,11 @@ const ProductList = () => {
     })();
   }, []);
   return (
-    <div className="h-screen w-full grid place-items-center">
+    <div className="h-screen w-full grid place-items-center my-14">
       {products === null ? (
         <Loader />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[20px] m-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[20px] m-10">
           {products?.data?.map((product) => (
             <Product key={product._id} product={product} />
           ))}

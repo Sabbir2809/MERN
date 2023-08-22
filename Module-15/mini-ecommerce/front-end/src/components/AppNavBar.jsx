@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { removeSession } from "../helpers/SessionHelper";
+import { getEmail, removeSession } from "../helpers/SessionHelper";
 import logo from "./../assets/images/logo.png";
 import user from "./../assets/images/user.webp";
 
@@ -9,7 +9,7 @@ const AppNavBar = () => {
     window.location.href = "/login";
   };
   return (
-    <div className="navbar fixed top-0  z-50 px-20 drop-shadow-lg bg-base-100">
+    <div className="navbar fixed top-0 z-50 px-20 drop-shadow-lg bg-base-100">
       <div className="flex-1">
         <Link to="/">
           <img className="w-20" src={logo} alt="logo" />
@@ -36,7 +36,12 @@ const AppNavBar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52">
             <li>
-              <Link onClick={handleLogout}>Logout</Link>
+              <h1 className="mb-4">Email: {getEmail()}</h1>
+            </li>
+            <li>
+              <button className="btn btn-sm btn-warning" onClick={handleLogout}>
+                Logout
+              </button>
             </li>
           </ul>
         </div>
