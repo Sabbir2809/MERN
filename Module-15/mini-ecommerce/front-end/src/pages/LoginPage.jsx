@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { setEmail, setToken } from "../helpers/SessionHelper";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -34,9 +35,8 @@ const LoginPage = () => {
         };
         const { data } = await axios.post(`http://localhost:8000/api/auth/user-login`, formBody);
         if (data.success) {
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("_id", data.data._id);
-          localStorage.setItem("email", data.data.email);
+          setToken(data.token);
+          setEmail(data.data.email);
           toast.success("Login Successful");
           navigate("/");
         }
@@ -52,7 +52,7 @@ const LoginPage = () => {
     <div className="container mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2">
         <div className="flex items-center w-full justify-center h-screen">
-          <div className="card w-2/4 card-side bg-white shadow-xl">
+          <div className="card w-8/12 card-side bg-white shadow-xl">
             <div className="card-body justify-center items-center">
               <form className="w-8/12" onSubmit={handleSubmit}>
                 <h1 className="text-2xl text-center font-bold text-blue-500 my-10">

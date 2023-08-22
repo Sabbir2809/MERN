@@ -50,7 +50,7 @@ const RegisterPage = () => {
     <div className="container mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2">
         <div className="flex items-center w-full justify-center h-screen">
-          <div className="card w-2/4 card-side bg-white shadow-xl">
+          <div className="card w-8/12 card-side bg-white shadow-xl">
             <div className="card-body justify-center items-center">
               <form className="w-8/12" onSubmit={handleSubmit}>
                 <h1 className="text-2xl text-center text-blue-500 font-bold my-10">

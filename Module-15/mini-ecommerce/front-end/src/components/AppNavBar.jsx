@@ -1,9 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
+import { removeSession } from "../helpers/SessionHelper";
 import logo from "./../assets/images/logo.png";
 import user from "./../assets/images/user.webp";
 
 const AppNavBar = () => {
-  const handleLogout = () => {};
+  const handleLogout = () => {
+    removeSession();
+    window.location.href = "/login";
+  };
   return (
     <div className="navbar fixed top-0  z-50 px-20 drop-shadow-lg bg-base-100">
       <div className="flex-1">

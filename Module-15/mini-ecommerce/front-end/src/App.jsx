@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppNavBar from "./components/AppNavBar";
 import LoginPage from "./pages/LoginPage";
+import ProductPage from "./pages/ProductPage";
 import RegisterPage from "./pages/RegisterPage";
 
 const App = () => {
@@ -8,7 +9,7 @@ const App = () => {
     <BrowserRouter>
       <AppNavBar></AppNavBar>
       <Routes>
-        <Route path="/" element />
+        <Route path="/" element={<ProductPage />} />
         <Route path="/cart-list" element />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
