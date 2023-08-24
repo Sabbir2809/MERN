@@ -5,7 +5,7 @@ exports.createProduct = async (req, res) => {
   try {
     const reqBody = req.body;
     const data = await productModel.create(reqBody);
-    res.status(200).json({ status: true, data: data });
+    res.status(201).json({ status: true, data: data });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }

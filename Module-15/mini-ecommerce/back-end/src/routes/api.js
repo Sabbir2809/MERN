@@ -1,10 +1,10 @@
 // Dependencies
 const express = require("express");
+const router = express.Router();
 const { register, login } = require("../controllers/userController");
 const { createProduct, getAllProducts } = require("../controllers/productController");
 const { createCart, getAllCartList, deleteCart } = require("../controllers/cartController");
 const { authVerify } = require("../middleware/authVerifyMiddleware");
-const router = express.Router();
 
 // API Routing End Point:
 

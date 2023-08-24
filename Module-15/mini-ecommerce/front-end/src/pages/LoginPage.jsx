@@ -18,7 +18,7 @@ const LoginPage = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (inputs.email.length === 0) {
       return toast.error("Email Required");
@@ -27,36 +27,30 @@ const LoginPage = () => {
       return toast.error("Password Required");
     }
 
-    (async () => {
-      try {
-        const formBody = {
-          email: inputs.email,
-          password: inputs.password,
-        };
-        const { data } = await axios.post(`http://localhost:8000/api/auth/user-login`, formBody);
-        if (data.success) {
-          setToken(data.token);
-          setEmail(data.data.email);
-          toast.success("Login Successful");
+    try {
+      const { data } = await axios.post(`http://localhost:8000/api/auth/user-login`, inputs);
+      if (data.success) {
+        setToken(data.token);
+        setEmail(data.data.email);
+        toast.success("Login Successful");
 
-          const postBody = { userEmail: getEmail(), productId: getGuestCart() };
-          const token = { headers: { token: getToken() } };
-          if (getToken()) {
-            const res = await axios.post(`http://localhost:8000/api/create-cart`, postBody, token);
-            if (res.status) {
-              localStorage.removeItem("guestCartItem");
-              navigate(`/cart-list`);
-            }
-          } else {
+        const postBody = { userEmail: getEmail(), productId: getGuestCart() };
+        const token = { headers: { token: getToken() } };
+        if (getToken()) {
+          const res = await axios.post(`http://localhost:8000/api/create-cart`, postBody, token);
+          if (res.status) {
+            localStorage.removeItem("guestCartItem");
             navigate(`/cart-list`);
           }
-        }
-      } catch (error) {
-        if (error.response.data.success === false) {
-          toast.error(error.response.data.message);
+        } else {
+          navigate(`/`);
         }
       }
-    })();
+    } catch (error) {
+      if (error.response.data.success === false) {
+        toast.error(error.response.data.message);
+      }
+    }
   };
 
   return (

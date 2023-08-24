@@ -49,7 +49,7 @@ exports.getAllCartList = async (req, res) => {
 // delete cart product
 exports.deleteCart = async (req, res) => {
   try {
-    const id = req.params.id;
+    const { id } = req.params;
     const query = { _id: id };
     const data = await cartModel.deleteOne(query, { new: true });
 

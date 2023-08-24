@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { getEmail, removeSession } from "../helpers/SessionHelper";
+import { getEmail, getToken, removeSession } from "../helpers/SessionHelper";
 import logo from "./../assets/images/logo.png";
 import user from "./../assets/images/user.webp";
 
@@ -26,25 +26,28 @@ const AppNavBar = () => {
             <NavLink to="/cart-list">View Cart</NavLink>
           </li>
         </ul>
-        <div className="dropdown dropdown-end px-2">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src={user} alt="user" />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52">
-            <li>
-              <h1 className="mb-4">Email: {getEmail()}</h1>
-            </li>
-            <li>
-              <button className="btn btn-sm btn-warning" onClick={handleLogout}>
-                Logout
-              </button>
-            </li>
-          </ul>
-        </div>
+        {getToken() && getEmail() && (
+          <div className="dropdown dropdown-end px-2">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user} alt="user" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52">
+              <li>
+                <h1 className="mb-4">Email: {getEmail()}</h1>
+              </li>
+
+              <li>
+                <button className="btn btn-sm btn-warning" onClick={handleLogout}>
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

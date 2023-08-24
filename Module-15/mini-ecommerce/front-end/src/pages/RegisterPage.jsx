@@ -29,11 +29,7 @@ const RegisterPage = () => {
 
     (async () => {
       try {
-        const formBody = {
-          email: inputs.email,
-          password: inputs.password,
-        };
-        const { data } = await axios.post(`http://localhost:8000/api/auth/user-register`, formBody);
+        const { data } = await axios.post(`http://localhost:8000/api/auth/user-register`, inputs);
         if (data.success) {
           toast.success("Registration Successful");
           navigate("/login");

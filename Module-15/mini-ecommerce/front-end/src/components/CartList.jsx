@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { convertPriceStringToNumber, getEmail, getGuestCart, getToken } from "../helpers/SessionHelper";
-import Loader from "./Loader";
 
 const CartList = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -67,7 +66,12 @@ const CartList = () => {
         <div className="container col-span-2">
           <div className="grid grid-cols-1  md:grid-cols-1 lg:grid-cols-1 gap-3">
             {cartItems?.length <= 0 ? (
-              <Loader />
+              <p className="text-xl">
+                Your Cart in Empty!{" "}
+                <Link to="/" className="text-blue-500">
+                  Please Add To Cart
+                </Link>
+              </p>
             ) : (
               cartItems?.map((item) => (
                 <div key={item?._id} className="card card-side bg-white shadow-xl">
