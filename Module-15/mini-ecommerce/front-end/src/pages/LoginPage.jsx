@@ -5,12 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { getEmail, getGuestCart, getToken, setEmail, setToken } from "../helpers/SessionHelper";
 
 const LoginPage = () => {
-  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
+  // setInputs
   const handleOnChange = (event) => {
     setInputs({
       ...inputs,
@@ -18,8 +19,11 @@ const LoginPage = () => {
     });
   };
 
+  // login
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    // input validation
     if (inputs.email.length === 0) {
       return toast.error("Email Required");
     }
@@ -28,16 +32,23 @@ const LoginPage = () => {
     }
 
     try {
+      // user-login api
       const { data } = await axios.post(`http://localhost:8000/api/auth/user-login`, inputs);
       if (data.success) {
+        // set email, token in localStorage
         setToken(data.token);
         setEmail(data.data.email);
+
         toast.success("Login Successful");
 
+        // get email, token in localStorage
         const postBody = { userEmail: getEmail(), productId: getGuestCart() };
         const token = { headers: { token: getToken() } };
+
+        // check token in localStorage
         if (getToken()) {
           const res = await axios.post(`http://localhost:8000/api/create-cart`, postBody, token);
+          // success status
           if (res.status) {
             localStorage.removeItem("guestCartItem");
             navigate(`/cart-list`);

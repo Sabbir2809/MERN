@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { convertPriceStringToNumber, getEmail, getGuestCart, getToken } from "../helpers/SessionHelper";
+import PayNow from "./PayNow";
 
 const CartList = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -11,10 +12,15 @@ const CartList = () => {
   useEffect(() => {
     (async () => {
       try {
+        // get email, token, guest productId form localStorage
         const postBody = { userEmail: getEmail() };
         const token = { headers: { token: getToken() }, productId: getGuestCart() };
+
+        // check token in localStorage
         if (getToken()) {
+          // cart-list api
           const res = await axios.post(`http://localhost:8000/api/cart-list`, postBody, token);
+
           if (res.data) {
             setCartItems(res.data.data);
           }
@@ -29,11 +35,17 @@ const CartList = () => {
     })();
   }, []);
 
+  // Remove Product Item form CartList
   const handleRemoveCart = async (productId) => {
     try {
+      // get email, token form localStorage
       const postBody = { userEmail: getEmail() };
       const token = { headers: { token: getToken() } };
+
+      // delete-cart api
       const res = await axios.delete(`http://localhost:8000/api/delete-cart/${productId}`, token);
+
+      // status success
       if (res.status) {
         toast.success("Remove Cart Successful!");
         if (getToken()) {
@@ -52,6 +64,7 @@ const CartList = () => {
     }
   };
 
+  // Calculate Cart Product Price
   const calculateTotalAmount = () => {
     const totalPrice = cartItems.reduce((total, currentValue) => {
       const price = convertPriceStringToNumber(currentValue);
@@ -95,13 +108,11 @@ const CartList = () => {
           </div>
         </div>
 
-        <div className="card shadow-xl h-44 w-100 bg-white">
+        <div className="card shadow-xl h-auto w-100 bg-white">
           <div className="card-body">
             <h2 className="card-title">Total Item: {cartItems.length}</h2>
             <h6>Total Price: $ {calculateTotalAmount()} </h6>
-            <div className="card-actions">
-              <button className="btn btn-sm my-4 btn-primary btn-outline">Check out</button>
-            </div>
+            <PayNow cartItems={cartItems} />
           </div>
         </div>
       </div>

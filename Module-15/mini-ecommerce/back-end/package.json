@@ -21,7 +21,8 @@
     "hpp": "^0.2.3",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.2",
-    "mongoose-unique-validator": "^4.0.0"
+    "mongoose-unique-validator": "^4.0.0",
+    "sslcommerz-lts": "^1.1.0"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

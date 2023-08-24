@@ -4,6 +4,7 @@ import logo from "./../assets/images/logo.png";
 import user from "./../assets/images/user.webp";
 
 const AppNavBar = () => {
+  // handle logout
   const handleLogout = () => {
     removeSession();
     window.location.href = "/login";

@@ -4,15 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { getEmail, getToken, setGuestCart } from "../helpers/SessionHelper";
 
 const Product = ({ product }) => {
-  const navigate = useNavigate();
   const { _id, title, description, thumbnail, price } = product;
+  const navigate = useNavigate();
 
+  // add to cart product
   const handleAddToCart = async () => {
     try {
+      // get email, token form localStorage
       const postBody = { userEmail: getEmail(), productId: _id };
       const token = { headers: { token: getToken() } };
+
+      // check token in localStorage
       if (getToken()) {
         const res = await axios.post(`http://localhost:8000/api/create-cart`, postBody, token);
+
         if (res.status) {
           toast.success("Add To Cart Successful!");
         }

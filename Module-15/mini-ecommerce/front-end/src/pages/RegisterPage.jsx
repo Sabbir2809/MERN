@@ -4,12 +4,13 @@ import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
-  const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
+  // setInputs
   const handleOnChange = (event) => {
     setInputs({
       ...inputs,
@@ -17,9 +18,11 @@ const RegisterPage = () => {
     });
   };
 
+  // register
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // input validation
     if (inputs.email.length === 0) {
       return toast.error("Email Required");
     }
@@ -29,7 +32,10 @@ const RegisterPage = () => {
 
     (async () => {
       try {
+        // user-register api
         const { data } = await axios.post(`http://localhost:8000/api/auth/user-register`, inputs);
+
+        // success status
         if (data.success) {
           toast.success("Registration Successful");
           navigate("/login");

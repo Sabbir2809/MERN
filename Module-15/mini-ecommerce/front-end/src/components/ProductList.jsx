@@ -11,7 +11,11 @@ const ProductList = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/products", { headers: { token: getToken() } });
+        // get all product api
+        const res = await axios.get("http://localhost:8000/api/products", {
+          headers: { token: getToken() },
+        });
+        // success status
         if (res.status) {
           setProducts(res.data);
         }

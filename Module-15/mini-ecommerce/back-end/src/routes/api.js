@@ -5,6 +5,7 @@ const { register, login } = require("../controllers/userController");
 const { createProduct, getAllProducts } = require("../controllers/productController");
 const { createCart, getAllCartList, deleteCart } = require("../controllers/cartController");
 const { authVerify } = require("../middleware/authVerifyMiddleware");
+const { paymentGateway, paymentSuccess, paymentFail } = require("../controllers/paymentGateway");
 
 // API Routing End Point:
 
@@ -20,6 +21,11 @@ router.get("/products", getAllProducts);
 router.post("/create-cart", authVerify, createCart);
 router.post("/cart-list", authVerify, getAllCartList);
 router.delete("/delete-cart/:id", authVerify, deleteCart);
+
+// SSLCommerz Payment Gateway
+router.post("/order", paymentGateway);
+router.post("/payment/success/:transId", paymentSuccess);
+router.post("/payment/fail/:transId", paymentFail);
 
 // Exports
 module.exports = router;
