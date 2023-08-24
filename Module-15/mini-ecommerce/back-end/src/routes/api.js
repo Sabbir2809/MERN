@@ -22,7 +22,7 @@ router.post("/create-cart", authVerify, createCart);
 router.post("/cart-list", authVerify, getAllCartList);
 router.delete("/delete-cart/:id", authVerify, deleteCart);
 
-// SSLCommerz Payment Gateway
+// SSLCommerz Payment Gateway API: order, paymentSuccess, paymentFail
 router.post("/order", paymentGateway);
 router.post("/payment/success/:transId", paymentSuccess);
 router.post("/payment/fail/:transId", paymentFail);
