@@ -19,7 +19,11 @@ const CartList = () => {
         // check token in localStorage
         if (getToken()) {
           // cart-list api
-          const res = await axios.post(`http://localhost:8000/api/cart-list`, postBody, token);
+          const res = await axios.post(
+            `https://mini-ecommerce-app.onrender.com/api/cart-list`,
+            postBody,
+            token
+          );
 
           if (res.data) {
             setCartItems(res.data.data);
@@ -43,13 +47,20 @@ const CartList = () => {
       const token = { headers: { token: getToken() } };
 
       // delete-cart api
-      const res = await axios.delete(`http://localhost:8000/api/delete-cart/${productId}`, token);
+      const res = await axios.delete(
+        `https://mini-ecommerce-app.onrender.com/api/delete-cart/${productId}`,
+        token
+      );
 
       // status success
       if (res.status) {
         toast.success("Remove Cart Successful!");
         if (getToken()) {
-          const res = await axios.post(`http://localhost:8000/api/cart-list`, postBody, token);
+          const res = await axios.post(
+            `https://mini-ecommerce-app.onrender.com/api/cart-list`,
+            postBody,
+            token
+          );
           if (res.data) {
             setCartItems(res.data.data);
           }
@@ -87,14 +98,15 @@ const CartList = () => {
               </p>
             ) : (
               cartItems?.map((item) => (
-                <div key={item?._id} className="card card-side bg-white shadow-xl">
-                  <figure>
-                    <img className="w-40" src={item?.cartList?.thumbnail} alt={item?.cartList?.title} />
-                  </figure>
-                  <div className="card-body">
-                    <h6 className="text-black">{item?.cartList?.title}</h6>
-                    <h3 className="text-xl font-bold text-gray-700">Price: ${item?.cartList?.price}</h3>
-                    <div className="card-actions justify-end">
+                <div
+                  key={item?._id}
+                  className="flex w-auto bg-white shadow-lg rounded-md overflow-hidden border p-4">
+                  <img className="w-40" src={item?.cartList?.thumbnail} alt={item?.cartList?.title} />
+                  <div className="w-2/3 p-4">
+                    <h1 className="text-gray-900 font-bold text-2xl">{item?.cartList?.title}</h1>
+
+                    <div className="flex item-center justify-between mt-3">
+                      <h1 className="text-gray-700 font-bold text-xl">${item?.cartList?.price}</h1>
                       <button
                         onClick={() => handleRemoveCart(item?._id)}
                         className="btn btn-sm btn-primary btn-outline">
