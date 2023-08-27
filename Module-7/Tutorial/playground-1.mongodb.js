@@ -1,19 +1,19 @@
-// Step-1: The current database to use
+// ===== Step-1: The current database to use =====
 const databaseName = "demo";
 use(databaseName);
 
 const collectionName = "employee";
-// Step-2: Create a new collection.
+// ===== 2: Create a new collection =====
 // db.createCollection(collectionName);
 
-// Step-3: insert new document: insertOne({}), insertMany([{}])
+// Step-3: insert new document: insertOne({}), insertMany([{},{}])
+
 // db.employee.insertOne({
 //   name: "Mahfuza Akter Shorna",
 //   designation: "Aggro",
 //   salary: 250000,
 //   city: "Dhaka"
 // })
-
 // db.employee.insertMany([
 //   {
 //     name: "A",
@@ -26,30 +26,27 @@ const collectionName = "employee";
 //     designation: "EEE",
 //     salary: 70000,
 //     city: "Khulna"
-//   },
-//   {
-//     name: "C",
-//     designation: "Civil",
-//     salary: 10000,
-//     city: "Dhaka"
-//   },
-//   {
-//     name: "D",
-//     designation: "SWE",
-//     salary: 15000,
-//     city: "Khulna"
 //   }
 // ]);
 
-// step-4: select all data: find({}), aggregate([]), count(), limit(), sort(), match()
+// ===== 4: select all data: find({}), aggregate([]) =====
 
 // db.employee.find({});
 // db.employee.aggregate([]);
+
+// ===== 5: count(), limit() =====
 
 // db.employee.find({}).count('total');
 // db.employee.aggregate([
 //   {$count: 'total'}
 // ]);
+
+// db.employee.find({}).limit(2);
+// db.employee.aggregate([
+//   {$limit: 3}
+// ])
+
+// ===== 6: sort(), match() =====
 
 // db.employee.find({}).sort({name: 1})
 // db.employee.aggregate([
@@ -57,11 +54,6 @@ const collectionName = "employee";
 //     salary: -1
 //   }}
 // ]);
-
-// db.employee.find({}).limit(2);
-// db.employee.aggregate([
-//   {$limit: 3}
-// ])
 
 // db.employee.find({}).sort({_id: -1}).limit(2);
 // db.employee.aggregate([
@@ -72,7 +64,6 @@ const collectionName = "employee";
 // ]);
 
 // db.employee.find({ salary: { $lte: 20000 } });
-
 // db.employee.aggregate([
 //   {$match: {
 //     salary: {$eq: 20000}
@@ -102,7 +93,6 @@ const collectionName = "employee";
 //     },
 //   },
 // ]);
-
 // db.employee.find({ $and: [{ salary: 20000 }, { city: "Dhaka" }] });
 
 // db.employee.aggregate([
@@ -112,5 +102,33 @@ const collectionName = "employee";
 //     },
 //   },
 // ]);
+// db.employee.find({ city: /D/ });
 
-db.employee.find({ city: /D/ });
+// ===== Step-7: match in =====
+// db.employee.aggregate([
+//   {
+//     $match: {
+//       name: {
+//         $in: ["Sabbir Hossain", "Mahfuza Akter Shorna"],
+//       },
+//     },
+//   },
+// ]);
+// db.employee.find({ name: { $in: ["A", "D"] } });
+
+// ====== Step-8: Projection ======
+
+// db.employee.find({}, { _id: 0, name: 1 });
+// db.employee.aggregate([
+//   {
+//     $project: {
+//       _id: 0,
+//       designation: 1,
+//     },
+//   },
+// ]);
+
+// ====== Step-9: skip(), limit() pagination ======
+
+// db.employee.aggregate([{ $skip: 1 }, { $limit: 3 }]);
+// db.employee.find({}).skip(3).limit(3);
