@@ -16,20 +16,20 @@ const collectionName = "employee";
 // })
 // db.employee.insertMany([
 //   {
-//     name: "A",
-//     designation: "CSE",
-//     salary: 25000,
-//     city: "Dhaka"
+//     name: "E",
+//     designation: "SWE",
+//     salary: 45000,
+//     city: "Chottogram",
 //   },
 //   {
-//     name: "B",
-//     designation: "EEE",
-//     salary: 70000,
-//     city: "Khulna"
-//   }
+//     name: "F",
+//     designation: "Architecture",
+//     salary: 60000,
+//     city: "Borisal",
+//   },
 // ]);
 
-// ===== 4: select all data: find({}), aggregate([]) =====
+// ===== 4: select all data from database: find({}), aggregate([]) =====
 
 // db.employee.find({});
 // db.employee.aggregate([]);
@@ -37,25 +37,23 @@ const collectionName = "employee";
 // ===== 5: count(), limit() =====
 
 // db.employee.find({}).count('total');
-// db.employee.aggregate([
-//   {$count: 'total'}
-// ]);
+// db.employee.aggregate([{ $count: "total" }]);
 
 // db.employee.find({}).limit(2);
-// db.employee.aggregate([
-//   {$limit: 3}
-// ])
+// db.employee.aggregate([{ $limit: 3 }]);
 
 // ===== 6: sort(), match() =====
 
 // db.employee.find({}).sort({name: 1})
 // db.employee.aggregate([
-//   {$sort: {
-//     salary: -1
-//   }}
+//   {
+//     $sort: {
+//       salary: -1,
+//     },
+//   },
 // ]);
 
-// db.employee.find({}).sort({_id: -1}).limit(2);
+// db.employee.find({}).sort({ _id: -1 }).limit(2);
 // db.employee.aggregate([
 //   // Stage-1: descending Order
 //   { $sort: { _id: 1 } },
@@ -65,10 +63,12 @@ const collectionName = "employee";
 
 // db.employee.find({ salary: { $lte: 20000 } });
 // db.employee.aggregate([
-//   {$match: {
-//     salary: {$eq: 20000}
-//   }}
-// ])
+//   {
+//     $match: {
+//       salary: { $eq: 20000 },
+//     },
+//   },
+// ]);
 
 // db.employee.aggregate([
 //   // Stage-1: salary
@@ -86,7 +86,6 @@ const collectionName = "employee";
 // ]);
 
 // db.employee.aggregate([
-//   // Stage-1: salary
 //   {
 //     $match: {
 //       $or: [{ salary: { $eq: 20000 } }, { designation: "EEE" }],
@@ -132,3 +131,17 @@ const collectionName = "employee";
 
 // db.employee.aggregate([{ $skip: 1 }, { $limit: 3 }]);
 // db.employee.find({}).skip(3).limit(3);
+
+// ====== Step-10: group by sub, avg, max, min ======
+db.employee.aggregate([
+  {
+    $group: {
+      // _id: "$designation",
+      _id: 0,
+      // total: { $sum: "$salary" },
+      // avg: { $avg: "$salary" },
+      max: { $max: "$salary" },
+      // min: { $min: "$salary" },
+    },
+  },
+]);
