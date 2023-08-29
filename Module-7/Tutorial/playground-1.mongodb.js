@@ -2,7 +2,7 @@
 const databaseName = "demo";
 use(databaseName);
 
-const collectionName = "employee";
+const collectionName = "products";
 // ===== 2: Create a new collection =====
 // db.createCollection(collectionName);
 
@@ -14,18 +14,30 @@ const collectionName = "employee";
 //   salary: 250000,
 //   city: "Dhaka"
 // })
-// db.employee.insertMany([
+// db.products.insertMany([
 //   {
-//     name: "E",
-//     designation: "SWE",
-//     salary: 45000,
-//     city: "Chottogram",
+//     CategoryID: 1654327845,
+//     BrandID: 1652474116,
+//     Name: "560 ltr Refrigerator",
+//     Price: "100000",
+//     Unit: "lt",
+//     Details: "Refrigerator",
+//     CreatedDate: {
+//       $date: Date.now(),
+//     },
+//     ProductID: 1654332429,
 //   },
 //   {
-//     name: "F",
-//     designation: "Architecture",
-//     salary: 60000,
-//     city: "Borisal",
+//     CategoryID: 1654327845,
+//     BrandID: 1654327435,
+//     Name: "510 ltr Refrigerator",
+//     Price: "75000",
+//     Unit: "lt",
+//     Details: "Refrigerator",
+//     CreatedDate: {
+//       $date: Date.now(),
+//     },
+//     ProductID: 1654332476,
 //   },
 // ]);
 
@@ -85,13 +97,13 @@ const collectionName = "employee";
 //   },
 // ]);
 
-// db.employee.aggregate([
-//   {
-//     $match: {
-//       $or: [{ salary: { $eq: 20000 } }, { designation: "EEE" }],
-//     },
-//   },
-// ]);
+db.employee.aggregate([
+  {
+    $match: {
+      $or: [{ salary: { $eq: 20000 } }, { designation: "EEE" }],
+    },
+  },
+]);
 // db.employee.find({ $and: [{ salary: 20000 }, { city: "Dhaka" }] });
 
 // db.employee.aggregate([
@@ -133,15 +145,103 @@ const collectionName = "employee";
 // db.employee.find({}).skip(3).limit(3);
 
 // ====== Step-10: group by sub, avg, max, min ======
-db.employee.aggregate([
-  {
-    $group: {
-      // _id: "$designation",
-      _id: 0,
-      // total: { $sum: "$salary" },
-      // avg: { $avg: "$salary" },
-      max: { $max: "$salary" },
-      // min: { $min: "$salary" },
-    },
-  },
-]);
+// db.employee.aggregate([
+//   {
+//     $group: {
+//       // _id: "$designation",
+//       _id: 0,
+//       // _id: { designation: "$designation", city: "$city" },
+//       sum: { $sum: "$salary" },
+//       avg: { $avg: "$salary" },
+//       max: { $max: "$salary" },
+//       min: { $min: "$salary" },
+//     },
+//   },
+// ]);
+
+// ====== Step-11: join by lookup, projection operator ======
+// db.products.aggregate([
+//   {
+//     $lookup: {
+//       from: "categories",
+//       localField: "CategoryID",
+//       foreignField: "CategoryID",
+//       as: "categoryDetails",
+//     },
+//   },
+//   {
+//     $lookup: {
+//       from: "brands",
+//       localField: "BrandID",
+//       foreignField: "BrandID",
+//       as: "brandDetails",
+//     },
+//   },
+//   {
+//     $project: {
+//       _id: 0,
+//       CategoryID: 1,
+//       BrandID: 1,
+//       productName: "$Name",
+//       price: { $toDouble: "$Price" },
+//       Unit: 1,
+//       Details: 1,
+//       CreatedDate: 1,
+//       ProductID: 1,
+//       category: { $first: "$categoryDetails.Name" },
+//       brand: { $first: "$brandDetails.Name" },
+//     },
+//   },
+// ]);
+
+// ====== Step-12: Facet Operator ======
+// db.products.aggregate([
+//   {
+//     $facet: {
+//       "total product": [{ $count: "total" }],
+//       walton: [
+//         {
+//           $match: {
+//             BrandID: 1654327435,
+//           },
+//         },
+//       ],
+//       samsung: [
+//         {
+//           $match: {
+//             BrandID: 1652474116,
+//           },
+//         },
+//       ],
+//     },
+//   },
+// ]);
+
+// ====== Step-13: Add new Field With Result, Arithmetic Operator, String Operator======
+
+// db.products.aggregate([
+//   {
+//     $match: {
+//       Unit: "lt",
+//     },
+//   },
+//   {
+//     $addFields: {
+//       image: "image url",
+//     },
+//   },
+//   {
+//     $addFields: {
+//       // add: { $add: [20, 10] },
+//       // divided: { $divide: [20, 10] },
+//       // multiply: { $multiply: [20, 10] },
+//       // squareRoot: { $sqrt: 32 },
+//       // pawer: { $pow: [10, 2] },
+//       // modulus: { $mod: [10, 3] },
+//       // concat: { $concat: ["$Name", " ", "$Details"] },
+//       // split: { $split: ["$Name", " "] },
+//       // toUpperCase: { $toUpper: ["$Details"] },
+//       // toLowerCase: { $toLower: ["$Details"] },
+//     },
+//   },
+// ]);
