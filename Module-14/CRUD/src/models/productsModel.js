@@ -1,8 +1,8 @@
 // Dependencies
-const { Schema, model } = require('mongoose');
+const mongoose = require("mongoose");
 
 // Schema
-const productsSchema = Schema(
+const productsSchema = new mongoose.Schema(
   {
     productName: { type: String, required: true },
     productCode: { type: String, unique: true, required: true },
@@ -15,7 +15,7 @@ const productsSchema = Schema(
 );
 
 // Model
-const productsModel = model('products', productsSchema);
+const productsModel = mongoose.model("products", productsSchema);
 
 // Export
 module.exports = productsModel;

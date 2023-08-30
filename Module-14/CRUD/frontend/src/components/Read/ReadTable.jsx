@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { successToast } from '../../helpers/validationHelper';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { successToast } from "../../helpers/validationHelper";
 
 const ReadTable = () => {
   const [dataList, setDataList] = useState([]);
@@ -16,15 +16,15 @@ const ReadTable = () => {
 
   const handleDeleteProduct = async (id) => {
     await axios.delete(`http://localhost:8000/api/v1/delete-product/${id}`);
-    successToast('Product Deleted Successfully');
+    successToast("Product Deleted Successfully");
     setId(id);
   };
 
   if (dataList.length > 0) {
     return (
-      <div className='container mt-3 table-responsive '>
-        <table className='table table-striped table-bordered table-hover'>
-          <thead className='table-primary text-center'>
+      <div className="container mt-3 table-responsive ">
+        <table className="table table-striped table-bordered table-hover">
+          <thead className="table-primary text-center">
             <tr>
               <th>Product Image</th>
               <th>Product Name</th>
@@ -35,11 +35,11 @@ const ReadTable = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody className='text-center'>
+          <tbody className="text-center">
             {dataList.map((item) => (
               <tr key={item.productCode}>
                 <td>
-                  <img className='list-img' src={item.image} alt='Product Image' />
+                  <img className="list-img" src={item.image} alt="Product Image" />
                 </td>
                 <td>{item.productName}</td>
                 <td>{item.productCode}</td>
@@ -47,10 +47,10 @@ const ReadTable = () => {
                 <td>{item.quantity}</td>
                 <td>{item.totalPrice}</td>
                 <td>
-                  <Link to={`/update-product/${item._id}`} className='btn btn-warning btn-sm mx-1'>
+                  <Link to={`/update-product/${item._id}`} className="btn btn-warning btn-sm mx-1">
                     Update
                   </Link>
-                  <button onClick={() => handleDeleteProduct(item._id)} className='btn btn-danger btn-sm'>
+                  <button onClick={() => handleDeleteProduct(item._id)} className="btn btn-danger btn-sm">
                     Delete
                   </button>
                 </td>
@@ -62,7 +62,7 @@ const ReadTable = () => {
     );
   } else {
     return (
-      <div className='text-center mt-4 text-secondary'>
+      <div className="text-center mt-4 text-secondary">
         <h1>Please Create a new Product</h1>
       </div>
     );
