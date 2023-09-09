@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "785848f4-e886-466e-b500-960451ea96b6",
+		"name": "Sales Analytics",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15226030"
+	},
+	"item": [
+		{
+			"name": "Total Revenue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE-URL}}/sales/total-revenue",
+					"host": [
+						"{{BASE-URL}}"
+					],
+					"path": [
+						"sales",
+						"total-revenue"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Quantity By Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE-URL}}/sales/quantity-by-product",
+					"host": [
+						"{{BASE-URL}}"
+					],
+					"path": [
+						"sales",
+						"quantity-by-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE-URL}}/sales/top-products",
+					"host": [
+						"{{BASE-URL}}"
+					],
+					"path": [
+						"sales",
+						"top-products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Average Price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE-URL}}/sales/average-price",
+					"host": [
+						"{{BASE-URL}}"
+					],
+					"path": [
+						"sales",
+						"average-price"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Revenue By Month",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE-URL}}/sales/revenue-by-month",
+					"host": [
+						"{{BASE-URL}}"
+					],
+					"path": [
+						"sales",
+						"revenue-by-month"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Highest Quantity Sold",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE-URL}}/sales/highest-quantity-sold",
+					"host": [
+						"{{BASE-URL}}"
+					],
+					"path": [
+						"sales",
+						"highest-quantity-sold"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Department Salary Expense",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE-URL}}/sales/department-salary-expense",
+					"host": [
+						"{{BASE-URL}}"
+					],
+					"path": [
+						"sales",
+						"department-salary-expense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Department",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"department\": \"HR\",\r\n    \"salaryExpense\": 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE-URL}}/sales/create-department",
+					"host": [
+						"{{BASE-URL}}"
+					],
+					"path": [
+						"sales",
+						"create-department"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"department_id\": \"64fc073e6c01367183abd87a\",\r\n    \"product\": \"F\",\r\n    \"quantity\": 3,\r\n    \"price\": 600\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE-URL}}/sales/create-product",
+					"host": [
+						"{{BASE-URL}}"
+					],
+					"path": [
+						"sales",
+						"create-product"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE-URL",
+			"value": "http://localhost:8000/api",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

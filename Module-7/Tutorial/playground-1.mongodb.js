@@ -97,13 +97,13 @@ const collectionName = "products";
 //   },
 // ]);
 
-db.employee.aggregate([
-  {
-    $match: {
-      $or: [{ salary: { $eq: 20000 } }, { designation: "EEE" }],
-    },
-  },
-]);
+// db.employee.aggregate([
+//   {
+//     $match: {
+//       $or: [{ salary: { $eq: 20000 } }, { designation: "EEE" }],
+//     },
+//   },
+// ]);
 // db.employee.find({ $and: [{ salary: 20000 }, { city: "Dhaka" }] });
 
 // db.employee.aggregate([
@@ -219,29 +219,29 @@ db.employee.aggregate([
 
 // ====== Step-13: Add new Field With Result, Arithmetic Operator, String Operator======
 
-// db.products.aggregate([
-//   {
-//     $match: {
-//       Unit: "lt",
-//     },
-//   },
-//   {
-//     $addFields: {
-//       image: "image url",
-//     },
-//   },
-//   {
-//     $addFields: {
-//       // add: { $add: [20, 10] },
-//       // divided: { $divide: [20, 10] },
-//       // multiply: { $multiply: [20, 10] },
-//       // squareRoot: { $sqrt: 32 },
-//       // pawer: { $pow: [10, 2] },
-//       // modulus: { $mod: [10, 3] },
-//       // concat: { $concat: ["$Name", " ", "$Details"] },
-//       // split: { $split: ["$Name", " "] },
-//       // toUpperCase: { $toUpper: ["$Details"] },
-//       // toLowerCase: { $toLower: ["$Details"] },
-//     },
-//   },
-// ]);
+db.products.aggregate([
+  {
+    $match: {
+      Unit: "lt",
+    },
+  },
+  {
+    $addFields: {
+      image: "image url",
+    },
+  },
+  {
+    $addFields: {
+      add: { $add: [20, 10] },
+      // divided: { $divide: [20, 10] },
+      // multiply: { $multiply: [20, 10] },
+      // squareRoot: { $sqrt: 32 },
+      // pawer: { $pow: [10, 2] },
+      // modulus: { $mod: [10, 3] },
+      // concat: { $concat: ["$Name", " ", "$Details"] },
+      // split: { $split: ["$Name", " "] },
+      // toUpperCase: { $toUpper: ["$Details"] },
+      // toLowerCase: { $toLower: ["$Details"] },
+    },
+  },
+]);
